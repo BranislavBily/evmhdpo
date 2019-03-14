@@ -1,2 +1,0 @@
-# Evidencia vozidiel MHD
-

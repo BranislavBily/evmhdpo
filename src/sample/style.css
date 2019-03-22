@@ -1,7 +1,15 @@
-#pane{
+#pane {
     -fx-background-image: url("/sample/images/background.jpg");
     -fx-background-repeat: stretch;
     -fx-background-size: 100% 100%;
     -fx-background-position: center center;
     -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);
+}
+
+#prihlasenie {
+    -fx-background-color: white;
+}
+
+#LoginButton {
+    -fx-background-color: #c6002f;
 }

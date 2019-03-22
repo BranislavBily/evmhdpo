@@ -17,9 +17,9 @@
          <children>
             <AnchorPane id="prihlasenie" layoutX="199.0" layoutY="221.0" prefHeight="531.0" prefWidth="562.0">
                <children>
-                  <Button id="LoginButton" layoutX="319.0" layoutY="375.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="166.0" style="-fx-font-family: Roboto;" text="Prihlásiť" textFill="WHITE">
+                  <Button id="LoginButton" layoutX="319.0" layoutY="375.0" mnemonicParsing="false" pickOnBounds="false" prefHeight="43.0" prefWidth="166.0" scaleShape="false" style="-fx-font-family: Roboto;" text="Prihlásiť" textFill="WHITE">
                      <font>
-                        <Font name="Calibri Bold" size="18.0" />
+                        <Font name="Calibri" size="18.0" />
                      </font></Button>
                   <TextField id="NameLabel" fx:id="textField" layoutX="88.0" layoutY="119.0" prefHeight="58.0" prefWidth="398.0" promptText="Login" style="-fx-font-size: 30; -fx-border-color: white white black white; -fx-font-family: Roboto; -fx-background-color: white;">
                      <font>
@@ -44,10 +44,7 @@
                         <Image url="@../images/key-solid.png" />
                      </image>
                   </ImageView>
-                  <CheckBox layoutX="62.0" layoutY="379.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="206.0" style="-fx-font-family: Roboto; -fx-background-color: white;" text="Zapamätať si" textOverrun="LEADING_ELLIPSIS">
-                     <font>
-                        <Font name="Georgia Pro" size="24.0" />
-                     </font>
+                  <CheckBox id="Checkbox" layoutX="62.0" layoutY="379.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="206.0" style="-fx-font-family: Roboto; -fx-background-color: white;" text="Zapamätať si" textOverrun="LEADING_ELLIPSIS">
                   </CheckBox>
                </children>
             </AnchorPane>

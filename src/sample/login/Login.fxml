@@ -11,13 +11,13 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane id="pane" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.login.LoginController">
+<StackPane id="pane" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.login.LoginController">
    <children>
       <AnchorPane prefHeight="1080.0" prefWidth="1920.0">
          <children>
             <AnchorPane id="prihlasenie" layoutX="199.0" layoutY="221.0" prefHeight="531.0" prefWidth="562.0">
                <children>
-                  <Button id="LoginButton" layoutX="319.0" layoutY="375.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="166.0" style="-fx-font-family: Roboto;" text="Prihlásiť" textFill="WHITE">
+                  <Button id="LoginButton" layoutX="319.0" layoutY="375.0" mnemonicParsing="false" onAction="#login" prefHeight="43.0" prefWidth="166.0" style="-fx-font-family: Roboto;" text="Prihlásiť" textFill="WHITE">
                      <font>
                         <Font name="Calibri Bold" size="18.0" />
                      </font></Button>
@@ -49,6 +49,7 @@
                         <Font name="Georgia Pro" size="24.0" />
                      </font>
                   </CheckBox>
+                  <Label fx:id="message" layoutX="89.0" layoutY="453.0" prefHeight="53.0" prefWidth="397.0" />
                </children>
             </AnchorPane>
          </children>

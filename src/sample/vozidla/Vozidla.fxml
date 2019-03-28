@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="sample.vozidla.Vozidla"
-            prefHeight="1080" prefWidth="1920">
 
+<AnchorPane prefHeight="1102.0" prefWidth="1923.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.vozidla.Vozidla">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#444444" height="1116.0" layoutX="-2.0" layoutY="-3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="380.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c6002f" height="46.0" layoutX="-17.0" layoutY="-1.0" opacity="0.9" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1940.0" />
+      <ImageView fitHeight="190.0" fitWidth="190.0" layoutX="94.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Layer%201.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="53.0" layoutY="274.0" text="Administátor" textFill="WHITE">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Label>
+      <Circle fill="#00a651" layoutX="311.0" layoutY="303.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
+   </children>
 </AnchorPane>

@@ -62,9 +62,7 @@ public class LoginController implements Initializable {
     }
     else
             System.out.println("Používateľ zadal nesprávne údaje!");
-            alertInfo.setText("Zadali ste nesprávne údaje!");
-
-            alertInfo.setText("");
+            alertInfo.setText("Zadali ste nesprávne údaje !");
 
     }
     }

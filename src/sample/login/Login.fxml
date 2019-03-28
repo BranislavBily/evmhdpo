@@ -17,7 +17,7 @@
          <children>
             <AnchorPane id="prihlasenie" layoutX="199.0" layoutY="221.0" prefHeight="531.0" prefWidth="562.0">
                <children>
-                  <Button id="LoginButton" layoutX="319.0" layoutY="375.0" mnemonicParsing="false" pickOnBounds="false" prefHeight="43.0" prefWidth="166.0" scaleShape="false" style="-fx-font-family: Roboto;" text="Prihlásiť" textFill="WHITE">
+                  <Button id="LoginButton" fx:id="buttonLogin" layoutX="319.0" layoutY="375.0" mnemonicParsing="false" onAction="#login" pickOnBounds="false" prefHeight="43.0" prefWidth="166.0" scaleShape="false" style="-fx-font-family: Roboto;" text="Prihlásiť" textFill="WHITE">
                      <font>
                         <Font name="Calibri" size="18.0" />
                      </font></Button>
@@ -46,6 +46,11 @@
                   </ImageView>
                   <CheckBox id="Checkbox" layoutX="62.0" layoutY="379.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="206.0" style="-fx-font-family: Roboto; -fx-background-color: white;" text="Zapamätať si" textOverrun="LEADING_ELLIPSIS">
                   </CheckBox>
+                  <Label fx:id="alertInfo" alignment="CENTER" contentDisplay="CENTER" layoutX="127.0" layoutY="324.0" prefHeight="28.0" prefWidth="326.0" style="-fx-text-alignment: center; -fx-font-family: Roboto;" textAlignment="CENTER" textFill="#ed0000">
+                     <font>
+                        <Font name="System Italic" size="19.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
          </children>

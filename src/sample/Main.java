@@ -7,9 +7,11 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
+    Stage primaryStage;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        this.primaryStage=primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("login/Login.fxml"));
         root.setId("pane");
         primaryStage.setTitle("Evidencia vozidiel MHD");

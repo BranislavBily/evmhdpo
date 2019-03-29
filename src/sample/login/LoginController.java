@@ -11,7 +11,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -42,7 +41,7 @@ public class LoginController implements Initializable {
 
 
     @FXML
-    private void login() throws InterruptedException {
+    private void login() {
         String name = textField.getText().toLowerCase();
         String pass = passField.getText();
 
@@ -58,6 +57,11 @@ public class LoginController implements Initializable {
 
             stage.setTitle("Vozidlá");
             stage.setScene(scene);
+            root.getStylesheets().addAll(this.getClass().getResource("../style.css").toExternalForm());
+            stage.setMaximized(true);
+            stage.setMinHeight(1080);
+            stage.setMinWidth(1920);
+            //stage.setFullScreen(true);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();

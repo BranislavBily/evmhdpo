@@ -34,7 +34,7 @@
             <Font size="48.0" />
          </font>
       </Label>
-      <ImageView fitHeight="32.0" fitWidth="19.0" layoutX="1876.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="32.0" fitWidth="19.0" layoutX="1876.0" layoutY="15.0" onMouseClicked="#logOut" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/Layer%202.png" />
          </image>

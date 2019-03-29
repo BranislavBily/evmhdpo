@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -9,7 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1102.0" prefWidth="1923.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.vozidla.VozidlaController">
+<AnchorPane prefHeight="1102.0" prefWidth="1923.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.vozidla.VozidlaController">
    <children>
       <Rectangle fx:id="BusIcon" arcHeight="5.0" arcWidth="5.0" fill="#444444" height="1116.0" layoutX="-2.0" layoutY="-3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="380.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c6002f" height="46.0" layoutX="-17.0" layoutY="-1.0" opacity="0.9" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1940.0" />
@@ -70,6 +73,21 @@
             <Image url="@../images/Layer%205.png" />
          </image>
       </ImageView>
+      <TableView fx:id="tableView" layoutX="431.0" layoutY="212.0" prefHeight="824.0" prefWidth="1300.0">
+        <columns>
+          <TableColumn fx:id="evcColumn" prefWidth="180.0" text="EVČ" />
+          <TableColumn fx:id="spzColumn" prefWidth="180.0" text="ŠPZ" />
+            <TableColumn fx:id="vodiciColumn" prefWidth="180.0" text="Vodiči" />
+            <TableColumn fx:id="stkColumn" prefWidth="180.0" text="STK do" />
+            <TableColumn fx:id="typColumn" prefWidth="180.0" text="Typ vozidla" />
+            <TableColumn fx:id="stavColumn" prefWidth="180.0" text="Stav vozidla" />
+            <TableColumn fx:id="reklamaColumn" prefWidth="180.0" text="Reklama" />
+        </columns>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </TableView>
+      <Button fx:id="add" layoutX="1778.0" layoutY="216.0" mnemonicParsing="false" onAction="#addButton" prefHeight="46.0" prefWidth="106.0" text="Add" />
 
    </children>
 </AnchorPane>

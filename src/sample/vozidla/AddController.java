@@ -37,7 +37,7 @@ public class AddController extends VozidlaController {
         statement.executeUpdate(sql);
 
 
-        String sql2="SELECT * FROM USER;";
+        String sql2="SELECT * FROM VOZIDLA;";
         ResultSet resultSet=statement.executeQuery(sql2);
         while (resultSet.next()){
             observableList.add(new TableModel(resultSet.getString("evc"),resultSet.getString("spz"),resultSet.getString("vodic"),resultSet.getString("stk"),resultSet.getString("typVozidla"),resultSet.getString("stavVozidla"),resultSet.getString("reklama")));

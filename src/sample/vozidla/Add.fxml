@@ -16,7 +16,7 @@
       <TextField fx:id="typField" layoutX="32.0" layoutY="181.0" promptText="Typ vozidla" />
       <TextField fx:id="stavField" layoutX="235.0" layoutY="181.0" promptText="Stav vozidla" />
       <TextField fx:id="reklamaField" layoutX="32.0" layoutY="222.0" promptText="Reklama" />
-      <Button layoutX="292.0" layoutY="222.0" mnemonicParsing="false" onAction="#button" prefHeight="26.0" prefWidth="74.0" text="Pridať" />
+      <Button layoutX="292.0" layoutY="222.0" mnemonicParsing="false" onAction="#insert" prefHeight="26.0" prefWidth="74.0" text="Pridať" />
       
    </children>
 </AnchorPane>

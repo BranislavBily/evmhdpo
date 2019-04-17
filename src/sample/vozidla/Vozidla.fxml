@@ -73,21 +73,24 @@
             <Image url="@../images/Layer%205.png" />
          </image>
       </ImageView>
-      <TableView fx:id="tableView" layoutX="431.0" layoutY="212.0" prefHeight="824.0" prefWidth="1300.0">
+      <TableView fx:id="tableView" layoutX="431.0" layoutY="216.0" prefHeight="821.0" prefWidth="1292.0">
         <columns>
-          <TableColumn fx:id="evcColumn" prefWidth="180.0" text="EVČ" />
-          <TableColumn fx:id="spzColumn" prefWidth="180.0" text="ŠPZ" />
-            <TableColumn fx:id="vodiciColumn" prefWidth="180.0" text="Vodiči" />
-            <TableColumn fx:id="stkColumn" prefWidth="180.0" text="STK do" />
-            <TableColumn fx:id="typColumn" prefWidth="180.0" text="Typ vozidla" />
-            <TableColumn fx:id="stavColumn" prefWidth="180.0" text="Stav vozidla" />
-            <TableColumn fx:id="reklamaColumn" prefWidth="180.0" text="Reklama" />
+          <TableColumn fx:id="evcColumn" prefWidth="150.0" text="EVČ" />
+          <TableColumn fx:id="spzColumn" prefWidth="150.0" text="ŠPZ" />
+            <TableColumn fx:id="vodiciColumn" prefWidth="150.0" text="Vodiči" />
+            <TableColumn fx:id="stkColumn" prefWidth="150.0" text="STK do" />
+            <TableColumn fx:id="typColumn" prefWidth="150.0" text="Typ vozidla" />
+            <TableColumn fx:id="stavColumn" prefWidth="150.0" text="Stav vozidla" />
+            <TableColumn fx:id="reklamaColumn" prefWidth="150.0" text="Reklama" />
+            <TableColumn fx:id="updateColumn" prefWidth="120.0" />
+            <TableColumn fx:id="deleteColumn" prefWidth="120.0" />
         </columns>
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
       </TableView>
       <Button fx:id="add" layoutX="1778.0" layoutY="216.0" mnemonicParsing="false" onAction="#addButton" prefHeight="46.0" prefWidth="106.0" text="Add" />
+      <Button layoutX="1778.0" layoutY="285.0" mnemonicParsing="false" onAction="#vozidlaClick" prefHeight="46.0" prefWidth="106.0" text="Refresh" />
 
    </children>
 </AnchorPane>

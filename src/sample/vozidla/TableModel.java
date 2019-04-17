@@ -1,21 +1,25 @@
 package sample.vozidla;
 
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.control.Button;
 
-import java.text.SimpleDateFormat;
+import java.sql.Date;
 
 public class TableModel {
 
-    private String tableEvc;
+    private int tableEvc;
     private String tableSpz;
     private String tableVodici;
-    private String tableStk;
+    private Date tableStk;
     private String tableTyp;
     private String tableStav;
     private String tableReklama;
+    private Button  update;
+    private Button delete;
 
-    public TableModel(String tableEvc, String tableSpz, String tableVodici, String tableStk, String tableTyp, String tableStav, String tableReklama) {
+
+    public TableModel(int tableEvc, String tableSpz, String tableVodici, Date tableStk, String tableTyp, String tableStav, String tableReklama, Button delete,Button update) {
         this.tableEvc = tableEvc;
         this.tableSpz = tableSpz;
         this.tableVodici = tableVodici;
@@ -23,13 +27,21 @@ public class TableModel {
         this.tableTyp = tableTyp;
         this.tableStav = tableStav;
         this.tableReklama = tableReklama;
+        this.update = update;
+        this.delete = delete;
+        this.delete.setText("Delete");
+        this.update.setText("Update");
+
     }
 
-    public String getTableEvc() {
+
+
+
+    public int getTableEvc() {
         return tableEvc;
     }
 
-    public void setTableEvc(String tableEvc) {
+    public void setTableEvc(int tableEvc) {
         this.tableEvc = tableEvc;
     }
 
@@ -49,11 +61,11 @@ public class TableModel {
         this.tableVodici = tableVodici;
     }
 
-    public String getTableStk() {
+    public Date getTableStk() {
         return tableStk;
     }
 
-    public void setTableStk(String tableStk) {
+    public void setTableStk(Date tableStk) {
         this.tableStk = tableStk;
     }
 
@@ -79,5 +91,21 @@ public class TableModel {
 
     public void setTableReklama(String tableReklama) {
         this.tableReklama = tableReklama;
+    }
+
+    public Button getUpdate() {
+        return update;
+    }
+
+    public void setUpdate(Button update) {
+        this.update = update;
+    }
+
+    public Button getDelete() {
+        return delete;
+    }
+
+    public void setDelete(Button delete) {
+        this.delete = delete;
     }
 }

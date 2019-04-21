@@ -206,12 +206,14 @@ public class VozidlaController implements Initializable {
                 System.out.println("finalId:" + finalId);
                 try {
                     statement.executeUpdate(delete);
+                    vozidlaClick(); //refresh stránky
                 } catch (SQLException e1) {
                     e1.printStackTrace();
                     System.out.println("Vymazanie údajov sa nepodarilo");
                 }
             });
         }
+
 
 
     }

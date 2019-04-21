@@ -8,7 +8,7 @@ public class ConnectionClass {
 
     public Connection getConnection(){
 
-        String dbName="testdb";
+        String dbName="evmhddatabase";
         String userName="root";
         String password="";
 

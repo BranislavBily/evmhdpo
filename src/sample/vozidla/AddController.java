@@ -9,10 +9,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import sample.Main;
+import sample.vodici.VodiciController;
 
 import java.io.IOException;
 import java.sql.*;
@@ -28,6 +30,9 @@ public class AddController {
     public TextField stavField;
     public TextField reklamaField;
 
+    @FXML
+    public Button pridatButton;
+
     public void insert() throws SQLException {
         ConnectionClass connectionClass = new ConnectionClass();
         Connection connection=connectionClass.getConnection();
@@ -35,7 +40,15 @@ public class AddController {
         String sql="INSERT INTO VOZIDLA (evc, spz, vodic,stk, typVozidla, stavVozidla, reklama ) VALUES ('"+Integer.parseInt(evcField.getText())+"','"+spzField.getText()+"','"+vodicField.getText()+"','"+stkField.getValue()+"','"+typField.getText()+"','"+stavField.getText()+"','"+reklamaField.getText()+"')";
         Statement statement=connection.createStatement();
         statement.executeUpdate(sql);
+        closeStage();
 
+
+    }
+
+    @FXML
+    public void closeStage() {
+        Stage stage = (Stage) pridatButton.getScene().getWindow();
+        stage.close();
     }
 
 

@@ -1,6 +1,7 @@
 package sample.vozidla;
 
 import connectivity.ConnectionClass;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 import java.net.URL;
@@ -91,7 +93,7 @@ public class VozidlaController implements Initializable {
         }
     }
     @FXML
-    private void vodiciClick() {
+    public void vodiciClick() {
         try {
             Stage stageVodici = (Stage) VodiciButton.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(VozidlaController.class.getResource("../vodici/Vodici.fxml"));
@@ -159,17 +161,18 @@ public class VozidlaController implements Initializable {
 
     public void addButton(){
         try {
-            Stage stageLogin = new Stage();
+            Stage stage = new Stage();
             FXMLLoader loader = new FXMLLoader(VozidlaController.class.getResource("../vozidla/Add.fxml"));
             Parent root = loader.load();
             root.getStylesheets().addAll(this.getClass().getResource("../style.css").toExternalForm());
             Scene scene = new Scene(root);
 
-            stageLogin.setTitle("Login");
-            stageLogin.setScene(scene);
-            stageLogin.setMinHeight(720);
-            stageLogin.setMinWidth(480);
-            stageLogin.show();
+            stage.setTitle("Pridanie vozidla");
+            stage.setScene(scene);
+            stage.setMinHeight(720);
+            stage.setMinWidth(480);
+            stage.show();
+            
 
         } catch (
                 IOException e) {

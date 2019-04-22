@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="324.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.vozidla.AddController">
+<AnchorPane prefHeight="324.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.vozidla.AddController">
    <children>
       <Label layoutX="32.0" layoutY="30.0" prefHeight="42.0" prefWidth="202.0" text="Pridanie záznamu do tabuľky" />
       <TextField fx:id="evcField" layoutX="32.0" layoutY="93.0" promptText="EVČ" />
@@ -14,9 +15,9 @@
       <TextField fx:id="vodicField" layoutX="32.0" layoutY="139.0" promptText="Vodič" />
       <DatePicker fx:id="stkField" layoutX="235.0" layoutY="139.0" promptText="STK do" />
       <TextField fx:id="typField" layoutX="32.0" layoutY="181.0" promptText="Typ vozidla" />
-      <TextField fx:id="stavField" layoutX="235.0" layoutY="181.0" promptText="Stav vozidla" />
       <TextField fx:id="reklamaField" layoutX="32.0" layoutY="222.0" promptText="Reklama" />
-      <Button layoutX="292.0" layoutY="222.0" mnemonicParsing="false" onAction="#insert" prefHeight="26.0" prefWidth="74.0" text="Pridať" />
+      <Button fx:id="pridatButton" layoutX="292.0" layoutY="222.0" mnemonicParsing="false" onAction="#insert" prefHeight="26.0" prefWidth="74.0" text="Pridať" />
+      <ComboBox fx:id="stavField" layoutX="234.0" layoutY="181.0" onMouseClicked="#obsahComboBox" prefHeight="26.0" prefWidth="174.0" promptText="--Stav Vozidla---" />
       
    </children>
 </AnchorPane>

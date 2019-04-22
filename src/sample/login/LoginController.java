@@ -45,8 +45,9 @@ public class LoginController implements Initializable {
         String name = textField.getText().toLowerCase();
         String pass = passField.getText();
 
-        System.out.println(name);
-        System.out.println(pass);
+        System.out.println("Zadané prihlasovacie údaje\n");
+        System.out.println("Login: "+name);
+        System.out.println("Heslo: "+pass+"\n");
         if(name.contains("admin")&&pass.contains("password")){
         try {
             Stage stage = (Stage) textField.getScene().getWindow();
@@ -70,6 +71,7 @@ public class LoginController implements Initializable {
     else
             System.out.println("Používateľ zadal nesprávne údaje!");
             alertInfo.setText("Zadali ste nesprávne údaje !");
+            
 
     }
     }

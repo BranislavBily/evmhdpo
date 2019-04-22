@@ -76,12 +76,12 @@
 
       <TableView fx:id="tableView" layoutX="431.0" layoutY="216.0" prefHeight="821.0" prefWidth="1292.0">
          <columns>
-            <TableColumn fx:id="vodicID" prefWidth="150.0" text="ID vodiča" />
-            <TableColumn fx:id="vodicName" prefWidth="150.0" text="Meno" />
-            <TableColumn fx:id="vodicSurname" prefWidth="150.0" text="Priezvisko" />
-            <TableColumn fx:id="vozidlo" prefWidth="150.0" text="ID vozidla" />
-            <TableColumn fx:id="stav" prefWidth="150.0" text="Stav vodiča" />
-            <TableColumn fx:id="prehliadka" prefWidth="150.0" text="Platnosť prehliadky" />
+            <TableColumn fx:id="vozidloEvc" prefWidth="150.0" text="EVČ Vozidla" />
+            <TableColumn fx:id="odstavene" prefWidth="150.0" text="Odstavené od" />
+            <TableColumn fx:id="zavada" prefWidth="150.0" text="Závada" />
+            <TableColumn fx:id="hala" prefWidth="150.0" text="Potrebná hala" />
+            <TableColumn fx:id="stav" prefWidth="150.0" text="Stav opravy" />
+            <TableColumn fx:id="odovzdanie" prefWidth="150.0" text="Termín odovzdania" />
             <TableColumn fx:id="updateColumn" prefWidth="120.0" />
             <TableColumn fx:id="deleteColumn" prefWidth="120.0" />
          </columns>

@@ -1,16 +1,54 @@
 package sample.servis;
 
+import connectivity.ConnectionClass;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import sample.Main;
+import sample.vodici.TableModelVod;
+import sample.vodici.UpdateControllerVodici;
+import sample.vozidla.VozidlaController;
 
 import java.awt.*;
 import java.io.IOException;
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class ServisController {
+public class ServisController implements Initializable {
+
+
+    public TableView<TableModelServ> tableView;
+    public TableColumn<TableModelServ,String> vehicleID;
+    public TableColumn<sample.servis.TableModelServ,String>odstavene;
+    public TableColumn<sample.servis.TableModelServ, String>zavada;
+    public TableColumn<sample.servis.TableModelServ,String>hala;
+    public TableColumn<sample.servis.TableModelServ,String> stav;
+    public TableColumn<sample.servis.TableModelServ,String> oprava;
+
+    public TableColumn<sample.servis.TableModelServ, javafx.scene.control.Button> updateColumn;
+    public TableColumn<sample.servis.TableModelServ, javafx.scene.control.Button> deleteColumn;
+
+
+    Button[] delete;
+    Button[] update;
+    int updateID;
+    Stage stageUpdate;
+    int updateIdecko;
 
     @FXML
     private javafx.scene.control.Label VozidlaButton;
@@ -105,6 +143,163 @@ public class ServisController {
         }
     }
 
+
+    public void addButton(){
+        try {
+            Stage stage = new Stage();
+            FXMLLoader loader = new FXMLLoader(VozidlaController.class.getResource("../servis/Add.fxml"));
+            Parent root = loader.load();
+            root.getStylesheets().addAll(this.getClass().getResource("../style.css").toExternalForm());
+            Scene scene = new Scene(root);
+
+            stage.setTitle("Pridanie vozidla");
+            stage.setScene(scene);
+            stage.setMinHeight(720);
+            stage.setMinWidth(480);
+            stage.show();
+
+
+        } catch (
+                IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /*Funkcia ktorá zaobstaráva vymazanie údaju*/
+
+    public void delete() throws SQLException {
+        ConnectionClass connectionClass = new ConnectionClass();
+        Connection connection=connectionClass.getConnection();
+        Statement statement=connection.createStatement();
+
+
+
+        String sqlID="SELECT id FROM SERVIS;";
+        ResultSet results=statement.executeQuery(sqlID);
+        ArrayList<Integer> ids = new ArrayList<>();
+        while(results.next()){
+            ids.add(results.getInt("id"));
+        }
+        delete = new Button[ids.size()];
+
+        for (int i=0;i<ids.size();i++){
+            delete[i] = new Button();
+            int finalId = ids.get(i);
+            delete[i].setOnAction(e -> {
+                String delete="DELETE FROM SERVIS WHERE id="+ finalId;
+                System.out.println("finalId:" + finalId);
+                try {
+                    statement.executeUpdate(delete);
+                    servisClick(); //refresh stránky
+                } catch (SQLException e1) {
+                    e1.printStackTrace();
+                    System.out.println("Vymazanie údajov sa nepodarilo");
+                }
+            });
+        }
+
+
+
+    }
+
+    public void updateWindow() throws SQLException {
+        ConnectionClass connectionClass = new ConnectionClass();
+        Connection connection=connectionClass.getConnection();
+        Statement statement=connection.createStatement();
+
+        String sqlID="SELECT id FROM SERVIS;";
+        ResultSet results=statement.executeQuery(sqlID);
+        ArrayList<Integer> ids = new ArrayList<>();
+        while(results.next()){
+            ids.add(results.getInt("id"));
+        }
+        update = new Button[ids.size()];
+
+        for (int i=0;i<ids.size();i++){
+            update[i] = new Button();
+            int finalI = i;
+            update[i].setOnAction(p -> {
+                updateID = ids.get(finalI);
+                stageUpdate = new Stage();
+                FXMLLoader loader = new FXMLLoader(VozidlaController.class.getResource("../servis/Update.fxml"));
+                Parent root = null;
+                try {
+                    root = (Parent) loader.load();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                UpdateControllerServis updateController = loader.getController();
+                updateController.updateId(updateID);
+
+
+                root.getStylesheets().addAll(this.getClass().getResource("../style.css").toExternalForm());
+                Scene scene = new Scene(root);
+
+
+                updateController.updateStage(stageUpdate);
+                stageUpdate.setTitle("update");
+                stageUpdate.setScene(scene);
+                stageUpdate.setMinHeight(720);
+                stageUpdate.setMinWidth(480);
+                stageUpdate.show();
+            }); {
+
+            }
+        }
+
+    }
+
+
+    ObservableList<TableModelServ> observableList= FXCollections.observableArrayList();
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+        try {
+
+            ConnectionClass connectionClass = new ConnectionClass();
+            Connection connection=connectionClass.getConnection();
+            Statement statement=connection.createStatement();
+
+            String sql2="SELECT * FROM SERVIS;";
+            ResultSet resultSet=statement.executeQuery(sql2);
+
+
+
+            delete();
+            updateWindow();
+
+            int i=0;
+            while (resultSet.next()){
+
+                observableList.add(new TableModelServ(resultSet.getInt("evc_vehicle"),resultSet.getDate("odstavene"),resultSet.getString("zavada"),resultSet.getString("hala"),resultSet.getString("stav"),resultSet.getDate("oprava"),update[i],delete[i]));
+                i++;
+            }
+
+            resultSet.close();
+            connection.close();
+            statement.close();
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        vehicleID.setCellValueFactory(new PropertyValueFactory<>("evcVozidla"));
+        odstavene.setCellValueFactory(new PropertyValueFactory<>("odstavene"));
+        zavada.setCellValueFactory(new PropertyValueFactory<>("zavada"));
+        hala.setCellValueFactory(new PropertyValueFactory<>("hala"));
+        stav.setCellValueFactory(new PropertyValueFactory<>("stav"));
+        oprava.setCellValueFactory(new PropertyValueFactory<>("odovzdanie"));
+        updateColumn.setCellValueFactory(new PropertyValueFactory<>("update"));
+        deleteColumn.setCellValueFactory(new PropertyValueFactory<>("delete"));
+
+
+        tableView.setItems(observableList);
+
+
+
+    }
 
 
 

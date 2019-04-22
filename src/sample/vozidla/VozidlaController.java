@@ -26,15 +26,8 @@ import java.util.ResourceBundle;
 public class VozidlaController implements Initializable {
 
 
-    /*Add controller*/
 
-    public TextField evcField;
-    public TextField spzField;
-    public TextField vodicField;
-    public DatePicker stkField;
-    public TextField typField;
-    public TextField stavField;
-    public TextField reklamaField;
+
 
     /*Vozidla Controller*/
 

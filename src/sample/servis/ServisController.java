@@ -154,7 +154,7 @@ public class ServisController implements Initializable {
 
             stage.setTitle("Pridanie vozidla");
             stage.setScene(scene);
-            stage.setMinHeight(720);
+            stage.setMinHeight(820);
             stage.setMinWidth(480);
             stage.show();
 

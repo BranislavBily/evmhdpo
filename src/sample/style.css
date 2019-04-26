@@ -43,6 +43,6 @@
     -fx-text-fill: white;
     -fx-background-color: #c6002f ;
 }
-.table-view .column-header-background{
+.table-view .column-header-background, .table-view .column-header-background .filler{
     -fx-background-color: #c6002f ;
 }

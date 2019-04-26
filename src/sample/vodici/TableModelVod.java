@@ -26,6 +26,8 @@ public class TableModelVod {
         this.delete = delete;
         this.delete.setText("Delete");
         this.update.setText("Update");
+        this.delete.setId("tableViewDelete");
+        this.update.setId("tableViewUpdate");
     }
 
 

@@ -46,3 +46,14 @@
 .table-view .column-header-background, .table-view .column-header-background .filler{
     -fx-background-color: #c6002f ;
 }
+.table-view .table-column {
+    -fx-alignment: CENTER;
+}
+#tableViewUpdate{
+    -fx-text-fill: white;
+    -fx-background-color: #c6002f ;
+}
+#tableViewDelete{
+    -fx-text-fill: white;
+    -fx-background-color: #c6002f ;
+}

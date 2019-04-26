@@ -26,6 +26,8 @@ public class TableModelServ {
         this.delete = delete;
         this.delete.setText("Delete");
         this.update.setText("Update");
+        this.delete.setId("tableViewDelete");
+        this.update.setId("tableViewUpdate");
     }
 
     public int getEvcVozidla() {

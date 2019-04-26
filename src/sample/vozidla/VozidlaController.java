@@ -133,7 +133,6 @@ public class VozidlaController implements Initializable {
             Stage stageLogin = (Stage) ServisButton.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(VozidlaController.class.getResource("../login/Login.fxml"));
             Parent root = loader.load();
-            root.getStylesheets().addAll(this.getClass().getResource("../style.css").toExternalForm());
             Scene scene = new Scene(root);
 
             stageLogin.setTitle("Login");
@@ -157,7 +156,6 @@ public class VozidlaController implements Initializable {
             Stage stage = new Stage();
             FXMLLoader loader = new FXMLLoader(VozidlaController.class.getResource("../vozidla/Add.fxml"));
             Parent root = loader.load();
-            root.getStylesheets().addAll(this.getClass().getResource("../style.css").toExternalForm());
             Scene scene = new Scene(root);
 
             stage.setTitle("Pridanie vozidla");
@@ -241,7 +239,7 @@ public class VozidlaController implements Initializable {
                 updateController.updateId(updateID);
 
 
-                root.getStylesheets().addAll(this.getClass().getResource("../style.css").toExternalForm());
+
                 Scene scene = new Scene(root);
 
 

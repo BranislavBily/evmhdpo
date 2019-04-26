@@ -133,7 +133,7 @@ public class VodiciController implements Initializable {
             stageLogin.setMaximized(true);
             stageLogin.setMinHeight(1080);
             stageLogin.setMinWidth(1920);
-            root.getStylesheets().addAll(this.getClass().getResource("../style.css").toExternalForm());
+
             stageLogin.show();
         } catch (
                 IOException e) {
@@ -146,7 +146,7 @@ public class VodiciController implements Initializable {
             Stage stage = new Stage();
             FXMLLoader loader = new FXMLLoader(VozidlaController.class.getResource("../vodici/Add.fxml"));
             Parent root = loader.load();
-            root.getStylesheets().addAll(this.getClass().getResource("../style.css").toExternalForm());
+
             Scene scene = new Scene(root);
 
             stage.setTitle("Pridanie vodiča");
@@ -229,7 +229,7 @@ public class VodiciController implements Initializable {
                 updateController.updateId(updateID);
 
 
-                root.getStylesheets().addAll(this.getClass().getResource("../style.css").toExternalForm());
+
                 Scene scene = new Scene(root);
 
 

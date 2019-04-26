@@ -135,7 +135,7 @@ public class ServisController implements Initializable {
             stageLogin.setMaximized(true);
             stageLogin.setMinHeight(1080);
             stageLogin.setMinWidth(1920);
-            root.getStylesheets().addAll(this.getClass().getResource("../style.css").toExternalForm());
+
             stageLogin.show();
         } catch (
                 IOException e) {
@@ -149,12 +149,12 @@ public class ServisController implements Initializable {
             Stage stage = new Stage();
             FXMLLoader loader = new FXMLLoader(VozidlaController.class.getResource("../servis/Add.fxml"));
             Parent root = loader.load();
-            root.getStylesheets().addAll(this.getClass().getResource("../style.css").toExternalForm());
+
             Scene scene = new Scene(root);
 
             stage.setTitle("Pridanie vozidla");
             stage.setScene(scene);
-            stage.setMinHeight(720);
+            stage.setMinHeight(820);
             stage.setMinWidth(480);
             stage.show();
 
@@ -232,7 +232,7 @@ public class ServisController implements Initializable {
                 updateController.updateId(updateID);
 
 
-                root.getStylesheets().addAll(this.getClass().getResource("../style.css").toExternalForm());
+
                 Scene scene = new Scene(root);
 
 

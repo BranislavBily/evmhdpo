@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -24,6 +25,7 @@ public class LoginController implements Initializable {
     private TextField textField;
     @FXML
     private Label alertInfo;
+    private CheckBox checkBox;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -37,6 +39,11 @@ public class LoginController implements Initializable {
                 passField.setText(oldVal);
             }
         });
+
+        /*if (checkBox.isSelected()){
+            textField.setText("admin");
+            passField.setText("password");
+        }*/
     }
 
 
@@ -58,7 +65,6 @@ public class LoginController implements Initializable {
 
             stage.setTitle("Vozidlá");
             stage.setScene(scene);
-            root.getStylesheets().addAll(this.getClass().getResource("../style.css").toExternalForm());
             stage.setMaximized(true);
             stage.setMinHeight(1080);
             stage.setMinWidth(1920);

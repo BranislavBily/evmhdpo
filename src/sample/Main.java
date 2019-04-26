@@ -1,5 +1,6 @@
 package sample;
 
+import com.sun.javafx.css.StyleManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,11 +17,13 @@ public class Main extends Application {
         root.setId("pane");
         primaryStage.setTitle("Evidencia vozidiel MHD");
         primaryStage.setScene(new Scene(root));
-        root.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
+       // root.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
         primaryStage.setMaximized(true);
         primaryStage.setMinHeight(1080);
         primaryStage.setMinWidth(1920);
         //primaryStage.setFullScreen(true);
+        Application.setUserAgentStylesheet(Application.STYLESHEET_MODENA);
+        StyleManager.getInstance().addUserAgentStylesheet(getClass().getResource("style.css").toString());
         primaryStage.show();
     }
 

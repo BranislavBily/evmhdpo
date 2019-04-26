@@ -35,3 +35,14 @@
 #LoginButton:hover{
     -fx-color: white;
 }
+.table-view .column-header{
+    -fx-background-color: #c6002f ;
+
+}
+.table-view .column-header .label{
+    -fx-text-fill: white;
+    -fx-background-color: #c6002f ;
+}
+.table-view .column-header-background{
+    -fx-background-color: #c6002f ;
+}

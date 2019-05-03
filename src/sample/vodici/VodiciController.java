@@ -153,7 +153,9 @@ public class VodiciController implements Initializable {
             stage.setScene(scene);
             stage.setMinHeight(720);
             stage.setMinWidth(480);
-            stage.show();
+            stage.showAndWait();
+
+            vodiciClick();
 
 
         } catch (
@@ -238,7 +240,9 @@ public class VodiciController implements Initializable {
                 stageUpdate.setScene(scene);
                 stageUpdate.setMinHeight(720);
                 stageUpdate.setMinWidth(480);
-                stageUpdate.show();
+                stageUpdate.showAndWait();
+
+                vodiciClick();
             }); {
 
             }
@@ -246,12 +250,7 @@ public class VodiciController implements Initializable {
 
     }
 
-
-    ObservableList<sample.vodici.TableModelVod> observableList= FXCollections.observableArrayList();
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
+    public void callDatabase(){
         try {
 
             ConnectionClass connectionClass = new ConnectionClass();
@@ -296,6 +295,15 @@ public class VodiciController implements Initializable {
 
 
 
+    }
+
+
+
+    ObservableList<sample.vodici.TableModelVod> observableList= FXCollections.observableArrayList();
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        callDatabase();
     }
 
 }

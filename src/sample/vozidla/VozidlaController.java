@@ -162,7 +162,10 @@ public class VozidlaController implements Initializable {
             stage.setScene(scene);
             stage.setMinHeight(720);
             stage.setMinWidth(480);
-            stage.show();
+            stage.showAndWait();
+
+            vozidlaClick();
+
             
 
         } catch (
@@ -236,6 +239,7 @@ public class VozidlaController implements Initializable {
                     e.printStackTrace();
                 }
                 UpdateController updateController = loader.getController();
+
                 updateController.updateId(updateID);
 
 
@@ -244,11 +248,13 @@ public class VozidlaController implements Initializable {
 
 
                 updateController.updateStage(stageUpdate);
-                stageUpdate.setTitle("update");
+                stageUpdate.setTitle("Zmana údajov vozidla");
                 stageUpdate.setScene(scene);
                 stageUpdate.setMinHeight(720);
                 stageUpdate.setMinWidth(480);
-                stageUpdate.show();
+                stageUpdate.showAndWait();
+
+                vozidlaClick();
             }); {
 
         }
@@ -256,18 +262,7 @@ public class VozidlaController implements Initializable {
 
     }
 
-
-
-
-
-
-
-
-    ObservableList<TableModel> observableList= FXCollections.observableArrayList();
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
+    public void callDatabase(){
         try {
 
             ConnectionClass connectionClass = new ConnectionClass();
@@ -279,10 +274,10 @@ public class VozidlaController implements Initializable {
 
 
 
-           delete();
-           updateWindow();
+            delete();
+            updateWindow();
 
-                int i=0;
+            int i=0;
             while (resultSet.next()){
 
                 observableList.add(new TableModel(resultSet.getInt("evc"),resultSet.getString("spz"),resultSet.getString("vodic"),resultSet.getDate("stk"),resultSet.getString("typVozidla"),resultSet.getString("stavVozidla"),resultSet.getString("reklama"),delete[i],update[i]));
@@ -313,6 +308,21 @@ public class VozidlaController implements Initializable {
 
 
 
+    }
+
+
+
+
+
+
+
+
+
+    ObservableList<TableModel> observableList= FXCollections.observableArrayList();
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        callDatabase();
     }
 
 

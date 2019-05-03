@@ -156,7 +156,9 @@ public class ServisController implements Initializable {
             stage.setScene(scene);
             stage.setMinHeight(820);
             stage.setMinWidth(480);
-            stage.show();
+            stage.showAndWait();
+
+            servisClick();
 
 
         } catch (
@@ -241,7 +243,9 @@ public class ServisController implements Initializable {
                 stageUpdate.setScene(scene);
                 stageUpdate.setMinHeight(720);
                 stageUpdate.setMinWidth(480);
-                stageUpdate.show();
+                stageUpdate.showAndWait();
+
+                servisClick();
             }); {
 
             }
@@ -249,12 +253,7 @@ public class ServisController implements Initializable {
 
     }
 
-
-    ObservableList<TableModelServ> observableList= FXCollections.observableArrayList();
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
+    public void callDatabase(){
         try {
 
             ConnectionClass connectionClass = new ConnectionClass();
@@ -299,6 +298,15 @@ public class ServisController implements Initializable {
 
 
 
+
+    }
+
+
+    ObservableList<TableModelServ> observableList= FXCollections.observableArrayList();
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        callDatabase();
     }
 
 

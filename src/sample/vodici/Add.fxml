@@ -11,11 +11,11 @@
 <AnchorPane prefHeight="324.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.vodici.AddController">
    <children>
       <Label layoutX="32.0" layoutY="30.0" prefHeight="42.0" prefWidth="202.0" text="Pridanie záznamu do tabuľky" />
-      <TextField fx:id="evcField" layoutX="32.0" layoutY="93.0" promptText="EVČ vodiča" />
+      <TextField fx:id="evcField" layoutX="32.0" layoutY="93.0" promptText="ID vodiča" />
       <TextField fx:id="nameField" layoutX="235.0" layoutY="93.0" promptText="Meno" />
       <TextField fx:id="surnameField" layoutX="32.0" layoutY="139.0" promptText="Priezvisko" />
       <DatePicker fx:id="prehliadkaField" layoutX="235.0" layoutY="139.0" promptText="Platnosť prehliadky" />
-      <TextField fx:id="evcVehicleField" layoutX="32.0" layoutY="182.0" promptText="Evč vozidla" />
+      <TextField fx:id="evcVehicleField" layoutX="32.0" layoutY="182.0" promptText="Priradené vozidlo" />
       <Button fx:id="pridatButton" layoutX="292.0" layoutY="222.0" mnemonicParsing="false" onAction="#insert" prefHeight="26.0" prefWidth="74.0" style="-fx-background-color: #c6002f;" text="Pridať" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />

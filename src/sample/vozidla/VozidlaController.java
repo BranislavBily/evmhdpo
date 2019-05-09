@@ -158,7 +158,7 @@ public class VozidlaController implements Initializable {
             Parent root = loader.load();
             Scene scene = new Scene(root);
 
-            stage.setTitle("Pridanie vozidla");
+            stage.setTitle("Pridanie vozidla do evidencie");
             stage.setScene(scene);
             stage.setMinHeight(720);
             stage.setMinWidth(480);
@@ -248,7 +248,7 @@ public class VozidlaController implements Initializable {
 
 
                 updateController.updateStage(stageUpdate);
-                stageUpdate.setTitle("Zmana údajov vozidla");
+                stageUpdate.setTitle("Zmena údajov pri vozidle");
                 stageUpdate.setScene(scene);
                 stageUpdate.setMinHeight(720);
                 stageUpdate.setMinWidth(480);

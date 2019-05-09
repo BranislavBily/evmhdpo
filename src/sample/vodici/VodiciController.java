@@ -149,7 +149,7 @@ public class VodiciController implements Initializable {
 
             Scene scene = new Scene(root);
 
-            stage.setTitle("Pridanie vodiča");
+            stage.setTitle("Pridanie vodiča do evidencie");
             stage.setScene(scene);
             stage.setMinHeight(720);
             stage.setMinWidth(480);
@@ -236,7 +236,7 @@ public class VodiciController implements Initializable {
 
 
                 updateController.updateStage(stageUpdate);
-                stageUpdate.setTitle("update");
+                stageUpdate.setTitle("Zmena údajov pri vodičovi");
                 stageUpdate.setScene(scene);
                 stageUpdate.setMinHeight(720);
                 stageUpdate.setMinWidth(480);

@@ -152,7 +152,7 @@ public class ServisController implements Initializable {
 
             Scene scene = new Scene(root);
 
-            stage.setTitle("Pridanie vozidla");
+            stage.setTitle("Pridanie servisu do evidencie");
             stage.setScene(scene);
             stage.setMinHeight(820);
             stage.setMinWidth(480);
@@ -239,7 +239,7 @@ public class ServisController implements Initializable {
 
 
                 updateController.updateStage(stageUpdate);
-                stageUpdate.setTitle("update");
+                stageUpdate.setTitle("Zmena údajov pri servise vozidla");
                 stageUpdate.setScene(scene);
                 stageUpdate.setMinHeight(720);
                 stageUpdate.setMinWidth(480);

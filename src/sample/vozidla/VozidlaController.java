@@ -166,7 +166,7 @@ public class VozidlaController implements Initializable {
 
             vozidlaClick();
 
-            
+
 
         } catch (
                 IOException e) {
@@ -257,8 +257,8 @@ public class VozidlaController implements Initializable {
                 vozidlaClick();
             }); {
 
+            }
         }
-    }
 
     }
 

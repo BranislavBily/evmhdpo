@@ -7,16 +7,20 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="324.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.vozidla.AddController">
    <children>
-      <Label layoutX="32.0" layoutY="30.0" prefHeight="42.0" prefWidth="202.0" text="Pridanie záznamu do tabuľky" />
+      <Label layoutX="128.0" layoutY="32.0" prefHeight="42.0" prefWidth="232.0" text="Pridanie záznamu do tabuľky">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
       <TextField fx:id="evcField" layoutX="32.0" layoutY="93.0" promptText="EVČ" />
       <TextField fx:id="spzField" layoutX="235.0" layoutY="93.0" promptText="ŠPZ" />
       <TextField fx:id="vodicField" layoutX="32.0" layoutY="139.0" promptText="Vodič" />
       <DatePicker fx:id="stkField" layoutX="235.0" layoutY="139.0" promptText="STK do" />
       <TextField fx:id="reklamaField" layoutX="32.0" layoutY="222.0" promptText="Reklama" />
-      <Button fx:id="pridatButton" layoutX="292.0" layoutY="222.0" mnemonicParsing="false" onAction="#insert" prefHeight="26.0" prefWidth="74.0" style="-fx-background-color: #c6002f;" text="Pridať" textFill="WHITE">
+      <Button fx:id="pridatButton" layoutX="166.0" layoutY="276.0" mnemonicParsing="false" onAction="#insert" prefHeight="26.0" prefWidth="155.0" style="-fx-background-color: #c6002f;" text="Pridať" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
@@ -24,7 +28,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></ComboBox>
-      <ComboBox fx:id="typField" layoutX="32.0" layoutY="181.0" onMouseClicked="#obsahComboBoxTyp" prefHeight="26.0" prefWidth="174.0" promptText="---Typ Vozidla---">
+      <ComboBox fx:id="typField" layoutX="32.0" layoutY="181.0" onMouseClicked="#obsahComboBoxTyp" prefHeight="26.0" prefWidth="174.0" promptText="--Typ Vozidla---">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

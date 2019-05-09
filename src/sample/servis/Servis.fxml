@@ -22,7 +22,7 @@
             <Image url="@../images/Layer%201.png" />
          </image>
       </ImageView>
-      <Label layoutX="53.0" layoutY="274.0" text="Administátor" textFill="WHITE">
+      <Label layoutX="53.0" layoutY="274.0" text="Administrátor" textFill="WHITE">
          <font>
             <Font size="40.0" />
          </font>

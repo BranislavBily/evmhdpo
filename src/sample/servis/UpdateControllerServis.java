@@ -69,7 +69,7 @@ public class UpdateControllerServis implements Initializable {
         Connection connection=connectionClass.getConnection();
 
 
-        String sql="UPDATE `SERVIS` SET `evc_vehicle`='"+Integer.parseInt(evcField.getText())+"',`odstavene`='"+odstaveneField.getValue().toString()+"',`zavada`='"+zavadaField.getText()+"',`hala`='"+halaField.getValue().toString()+"',`stav`='"+stavField.getValue().toString()+"',`oprava`='"+odovzdanieField.getValue().toString()+"' WHERE `id`='"+fID+"'";
+        String sql="UPDATE `servis` SET `evc_vehicle`='"+Integer.parseInt(evcField.getText())+"',`odstavene`='"+odstaveneField.getValue().toString()+"',`zavada`='"+zavadaField.getText()+"',`hala`='"+halaField.getValue().toString()+"',`stav`='"+stavField.getValue().toString()+"',`oprava`='"+odovzdanieField.getValue().toString()+"' WHERE `id`='"+fID+"'";
 
         Statement statement=connection.createStatement();
         statement.executeUpdate(sql);

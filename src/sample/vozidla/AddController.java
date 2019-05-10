@@ -41,7 +41,7 @@ public class AddController {
         ConnectionClass connectionClass = new ConnectionClass();
         Connection connection=connectionClass.getConnection();
 
-        String sql="INSERT INTO VOZIDLA (evc, spz, vodic,stk, typVozidla, stavVozidla, reklama ) VALUES ('"+Integer.parseInt(evcField.getText())+"','"+spzField.getText()+"','"+vodicField.getText()+"','"+stkField.getValue()+"','"+typField.getValue().toString()+"','"+stavField.getValue().toString()+"','"+reklamaField.getText()+"')";
+        String sql="INSERT INTO vozidla (evc, spz, vodic,stk, typVozidla, stavVozidla, reklama ) VALUES ('"+Integer.parseInt(evcField.getText())+"','"+spzField.getText()+"','"+vodicField.getText()+"','"+stkField.getValue()+"','"+typField.getValue().toString()+"','"+stavField.getValue().toString()+"','"+reklamaField.getText()+"')";
         Statement statement=connection.createStatement();
         statement.executeUpdate(sql);
         closeStage();

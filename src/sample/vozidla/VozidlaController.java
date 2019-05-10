@@ -184,7 +184,7 @@ public class VozidlaController implements Initializable {
 
 
 
-        String sqlID="SELECT id FROM VOZIDLA;";
+        String sqlID="SELECT id FROM vozidla;";
         ResultSet results=statement.executeQuery(sqlID);
         ArrayList<Integer> ids = new ArrayList<>();
         while(results.next()){
@@ -196,7 +196,7 @@ public class VozidlaController implements Initializable {
             delete[i] = new Button();
             int finalId = ids.get(i);
             delete[i].setOnAction(e -> {
-                String delete="DELETE FROM VOZIDLA WHERE id="+ finalId;
+                String delete="DELETE FROM vozidla WHERE id="+ finalId;
                 System.out.println("finalId:" + finalId);
                 try {
                     statement.executeUpdate(delete);
@@ -217,7 +217,7 @@ public class VozidlaController implements Initializable {
         Connection connection=connectionClass.getConnection();
         Statement statement=connection.createStatement();
 
-        String sqlID="SELECT id FROM VOZIDLA;";
+        String sqlID="SELECT id FROM vozidla;";
         ResultSet results=statement.executeQuery(sqlID);
         ArrayList<Integer> ids = new ArrayList<>();
         while(results.next()){
@@ -269,7 +269,7 @@ public class VozidlaController implements Initializable {
             Connection connection=connectionClass.getConnection();
             Statement statement=connection.createStatement();
 
-            String sql2="SELECT * FROM VOZIDLA;";
+            String sql2="SELECT * FROM vozidla";
             ResultSet resultSet=statement.executeQuery(sql2);
 
 

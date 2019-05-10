@@ -176,7 +176,7 @@ public class ServisController implements Initializable {
 
 
 
-        String sqlID="SELECT id FROM SERVIS;";
+        String sqlID="SELECT id FROM servis;";
         ResultSet results=statement.executeQuery(sqlID);
         ArrayList<Integer> ids = new ArrayList<>();
         while(results.next()){
@@ -188,7 +188,7 @@ public class ServisController implements Initializable {
             delete[i] = new Button();
             int finalId = ids.get(i);
             delete[i].setOnAction(e -> {
-                String delete="DELETE FROM SERVIS WHERE id="+ finalId;
+                String delete="DELETE FROM servis WHERE id="+ finalId;
                 System.out.println("finalId:" + finalId);
                 try {
                     statement.executeUpdate(delete);
@@ -209,7 +209,7 @@ public class ServisController implements Initializable {
         Connection connection=connectionClass.getConnection();
         Statement statement=connection.createStatement();
 
-        String sqlID="SELECT id FROM SERVIS;";
+        String sqlID="SELECT id FROM servis;";
         ResultSet results=statement.executeQuery(sqlID);
         ArrayList<Integer> ids = new ArrayList<>();
         while(results.next()){
@@ -260,7 +260,7 @@ public class ServisController implements Initializable {
             Connection connection=connectionClass.getConnection();
             Statement statement=connection.createStatement();
 
-            String sql2="SELECT * FROM SERVIS;";
+            String sql2="SELECT * FROM servis;";
             ResultSet resultSet=statement.executeQuery(sql2);
 
 

@@ -7,20 +7,24 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="324.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.vodici.AddController">
+<AnchorPane prefHeight="324.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.vodici.AddController">
    <children>
-      <Label layoutX="32.0" layoutY="30.0" prefHeight="42.0" prefWidth="202.0" text="Pridanie záznamu do tabuľky" />
+      <Label layoutX="128.0" layoutY="30.0" prefHeight="42.0" prefWidth="232.0" text="Pridanie záznamu do tabuľky">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
       <TextField fx:id="evcField" layoutX="32.0" layoutY="93.0" promptText="EVČ vodiča" />
-      <TextField fx:id="nameField" layoutX="235.0" layoutY="93.0" promptText="Meno" />
+      <TextField fx:id="nameField" layoutX="247.0" layoutY="93.0" promptText="Meno" />
       <TextField fx:id="surnameField" layoutX="32.0" layoutY="139.0" promptText="Priezvisko" />
-      <DatePicker fx:id="prehliadkaField" layoutX="235.0" layoutY="139.0" promptText="Platnosť prehliadky" />
+      <DatePicker fx:id="prehliadkaField" layoutX="247.0" layoutY="139.0" promptText="Platnosť prehliadky" />
       <TextField fx:id="evcVehicleField" layoutX="32.0" layoutY="182.0" promptText="Evč vozidla" />
-      <Button fx:id="pridatButton" layoutX="292.0" layoutY="222.0" mnemonicParsing="false" onAction="#insert" prefHeight="26.0" prefWidth="74.0" style="-fx-background-color: #c6002f;" text="Pridať" textFill="WHITE">
+      <Button fx:id="pridatButton" layoutX="166.0" layoutY="237.0" mnemonicParsing="false" onAction="#insert" prefHeight="26.0" prefWidth="155.0" style="-fx-background-color: #c6002f;" text="Pridať" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <ComboBox fx:id="stavField" layoutX="234.0" layoutY="181.0" onMouseClicked="#obsahComboBox" prefHeight="26.0" prefWidth="174.0" promptText="--Stav Vodiča---">
+      <ComboBox fx:id="stavField" layoutX="247.0" layoutY="181.0" onMouseClicked="#obsahComboBox" prefHeight="26.0" prefWidth="174.0" promptText="--Stav Vodiča---">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></ComboBox>

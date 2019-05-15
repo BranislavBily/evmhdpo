@@ -1,6 +1,7 @@
 package sample.login;
 
 
+import connectivity.ConnectionClass;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,6 +15,11 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
@@ -26,6 +32,10 @@ public class LoginController implements Initializable {
     @FXML
     private Label alertInfo;
     private CheckBox checkBox;
+
+    private String username;
+    private String password;
+    private int autoLogin;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -40,46 +50,56 @@ public class LoginController implements Initializable {
             }
         });
 
-        /*if (checkBox.isSelected()){
-            textField.setText("admin");
-            passField.setText("password");
-        }*/
+
+    }
+
+    public void selectUser() throws SQLException {
+
     }
 
 
-    @FXML
-    private void login() {
-        String name = textField.getText().toLowerCase();
-        String pass = passField.getText();
+  @FXML
+    private void login() throws SQLException {
+      ConnectionClass connectionClass = new ConnectionClass();
+      Connection connection = connectionClass.getConnection();
+      Statement statement = connection.createStatement();
 
-        System.out.println("Zadané prihlasovacie údaje\n");
-        System.out.println("Login: "+name);
-        System.out.println("Heslo: "+pass+"\n");
-        if(name.contains("admin")&&pass.contains("password")){
-        try {
-            Stage stage = (Stage) textField.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../vozidla/Vozidla.fxml"));
-            Parent root = loader.load();
 
-            Scene scene = new Scene(root);
+      String insertName = textField.getText().toLowerCase();
+      String insertPassword = passField.getText();
 
-            stage.setTitle("Vozidlá");
-            stage.setScene(scene);
-            stage.setMaximized(true);
-            stage.setMinHeight(1080);
-            stage.setMinWidth(1920);
-            //stage.setFullScreen(true);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+      String sql = "SELECT * FROM users WHERE name ='"+insertName+"' AND password='"+insertPassword+"';";
+      ResultSet results = statement.executeQuery(sql);
+
+
+      if(!results.next()){
+          System.out.println("Prihlásenie neúspešné");
+          alertInfo.setText("Zle zadané údaje!");
+      }else{
+          System.out.println("Prihlásenie úspešné");
+
+          try {
+              Stage stage = (Stage) textField.getScene().getWindow();
+              FXMLLoader loader = new FXMLLoader(getClass().getResource("../vozidla/Vozidla.fxml"));
+              Parent root = loader.load();
+
+              Scene scene = new Scene(root);
+
+              stage.setTitle("Vozidlá");
+              stage.setScene(scene);
+              stage.setMaximized(true);
+              stage.setMinHeight(1080);
+              stage.setMinWidth(1920);
+              //stage.setFullScreen(true);
+              stage.show();
+
+          } catch (IOException e) {
+              e.printStackTrace();
+          }
+
+      }
+
     }
-    else
-            System.out.println("Používateľ zadal nesprávne údaje!");
-            alertInfo.setText("Zadali ste nesprávne údaje !");
-            
-
-    }
-    }
+  }
 
 

@@ -152,11 +152,13 @@ public class ServisController implements Initializable {
 
             Scene scene = new Scene(root);
 
-            stage.setTitle("Pridanie vozidla");
+            stage.setTitle("Pridanie servisu do evidencie");
             stage.setScene(scene);
             stage.setMinHeight(820);
             stage.setMinWidth(480);
-            stage.show();
+            stage.showAndWait();
+
+            servisClick();
 
 
         } catch (
@@ -174,7 +176,7 @@ public class ServisController implements Initializable {
 
 
 
-        String sqlID="SELECT id FROM SERVIS;";
+        String sqlID="SELECT id FROM servis;";
         ResultSet results=statement.executeQuery(sqlID);
         ArrayList<Integer> ids = new ArrayList<>();
         while(results.next()){
@@ -186,7 +188,7 @@ public class ServisController implements Initializable {
             delete[i] = new Button();
             int finalId = ids.get(i);
             delete[i].setOnAction(e -> {
-                String delete="DELETE FROM SERVIS WHERE id="+ finalId;
+                String delete="DELETE FROM servis WHERE id="+ finalId;
                 System.out.println("finalId:" + finalId);
                 try {
                     statement.executeUpdate(delete);
@@ -207,7 +209,7 @@ public class ServisController implements Initializable {
         Connection connection=connectionClass.getConnection();
         Statement statement=connection.createStatement();
 
-        String sqlID="SELECT id FROM SERVIS;";
+        String sqlID="SELECT id FROM servis;";
         ResultSet results=statement.executeQuery(sqlID);
         ArrayList<Integer> ids = new ArrayList<>();
         while(results.next()){
@@ -237,11 +239,13 @@ public class ServisController implements Initializable {
 
 
                 updateController.updateStage(stageUpdate);
-                stageUpdate.setTitle("update");
+                stageUpdate.setTitle("Zmena údajov pri servise vozidla");
                 stageUpdate.setScene(scene);
                 stageUpdate.setMinHeight(720);
                 stageUpdate.setMinWidth(480);
-                stageUpdate.show();
+                stageUpdate.showAndWait();
+
+                servisClick();
             }); {
 
             }
@@ -249,19 +253,14 @@ public class ServisController implements Initializable {
 
     }
 
-
-    ObservableList<TableModelServ> observableList= FXCollections.observableArrayList();
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
+    public void callDatabase(){
         try {
 
             ConnectionClass connectionClass = new ConnectionClass();
             Connection connection=connectionClass.getConnection();
             Statement statement=connection.createStatement();
 
-            String sql2="SELECT * FROM SERVIS;";
+            String sql2="SELECT * FROM servis;";
             ResultSet resultSet=statement.executeQuery(sql2);
 
 
@@ -299,6 +298,15 @@ public class ServisController implements Initializable {
 
 
 
+
+    }
+
+
+    ObservableList<TableModelServ> observableList= FXCollections.observableArrayList();
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        callDatabase();
     }
 
 

@@ -149,11 +149,13 @@ public class VodiciController implements Initializable {
 
             Scene scene = new Scene(root);
 
-            stage.setTitle("Pridanie vodiča");
+            stage.setTitle("Pridanie vodiča do evidencie");
             stage.setScene(scene);
             stage.setMinHeight(720);
             stage.setMinWidth(480);
-            stage.show();
+            stage.showAndWait();
+
+            vodiciClick();
 
 
         } catch (
@@ -171,7 +173,7 @@ public class VodiciController implements Initializable {
 
 
 
-        String sqlID="SELECT id FROM VODICI;";
+        String sqlID="SELECT id FROM vodici;";
         ResultSet results=statement.executeQuery(sqlID);
         ArrayList<Integer> ids = new ArrayList<>();
         while(results.next()){
@@ -183,7 +185,7 @@ public class VodiciController implements Initializable {
             delete[i] = new Button();
             int finalId = ids.get(i);
             delete[i].setOnAction(e -> {
-                String delete="DELETE FROM VODICI WHERE id="+ finalId;
+                String delete="DELETE FROM vodici WHERE id="+ finalId;
                 System.out.println("finalId:" + finalId);
                 try {
                     statement.executeUpdate(delete);
@@ -204,7 +206,7 @@ public class VodiciController implements Initializable {
         Connection connection=connectionClass.getConnection();
         Statement statement=connection.createStatement();
 
-        String sqlID="SELECT id FROM VODICI;";
+        String sqlID="SELECT id FROM vodici;";
         ResultSet results=statement.executeQuery(sqlID);
         ArrayList<Integer> ids = new ArrayList<>();
         while(results.next()){
@@ -234,11 +236,13 @@ public class VodiciController implements Initializable {
 
 
                 updateController.updateStage(stageUpdate);
-                stageUpdate.setTitle("update");
+                stageUpdate.setTitle("Zmena údajov pri vodičovi");
                 stageUpdate.setScene(scene);
                 stageUpdate.setMinHeight(720);
                 stageUpdate.setMinWidth(480);
-                stageUpdate.show();
+                stageUpdate.showAndWait();
+
+                vodiciClick();
             }); {
 
             }
@@ -246,19 +250,14 @@ public class VodiciController implements Initializable {
 
     }
 
-
-    ObservableList<sample.vodici.TableModelVod> observableList= FXCollections.observableArrayList();
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
+    public void callDatabase(){
         try {
 
             ConnectionClass connectionClass = new ConnectionClass();
             Connection connection=connectionClass.getConnection();
             Statement statement=connection.createStatement();
 
-            String sql2="SELECT * FROM VODICI;";
+            String sql2="SELECT * FROM vodici;";
             ResultSet resultSet=statement.executeQuery(sql2);
 
 
@@ -296,6 +295,15 @@ public class VodiciController implements Initializable {
 
 
 
+    }
+
+
+
+    ObservableList<sample.vodici.TableModelVod> observableList= FXCollections.observableArrayList();
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        callDatabase();
     }
 
 }

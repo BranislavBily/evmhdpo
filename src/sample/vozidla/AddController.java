@@ -1,6 +1,7 @@
 package sample.vozidla;
 
 
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.Loader;
 import connectivity.ConnectionClass;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -27,7 +28,7 @@ public class AddController {
     public TextField spzField;
     public TextField vodicField;
     public DatePicker stkField;
-    public TextField typField;
+    public ComboBox typField;
     public ComboBox stavField;
     public TextField reklamaField;
 
@@ -40,7 +41,7 @@ public class AddController {
         ConnectionClass connectionClass = new ConnectionClass();
         Connection connection=connectionClass.getConnection();
 
-        String sql="INSERT INTO VOZIDLA (evc, spz, vodic,stk, typVozidla, stavVozidla, reklama ) VALUES ('"+Integer.parseInt(evcField.getText())+"','"+spzField.getText()+"','"+vodicField.getText()+"','"+stkField.getValue()+"','"+typField.getText()+"','"+stavField.getValue().toString()+"','"+reklamaField.getText()+"')";
+        String sql="INSERT INTO vozidla (evc, spz, vodic,stk, typVozidla, stavVozidla, reklama ) VALUES ('"+Integer.parseInt(evcField.getText())+"','"+spzField.getText()+"','"+vodicField.getText()+"','"+stkField.getValue()+"','"+typField.getValue().toString()+"','"+stavField.getValue().toString()+"','"+reklamaField.getText()+"')";
         Statement statement=connection.createStatement();
         statement.executeUpdate(sql);
         closeStage();
@@ -53,6 +54,18 @@ public class AddController {
         ObservableList<String> options =
                 FXCollections.observableArrayList("Pojazdné","Nepojazdné","V servise");
         stavField.setItems(options);
+
+    }
+    @FXML
+    public void obsahComboBoxTyp(){
+        ObservableList<String> options =
+                FXCollections.observableArrayList("Karosa B741","Karosa B932E","Karosa B941",
+                        "Karosa B941E","Karosa B961","Karosa B961E","Renault Karosa Citybus 12M",
+                        "Irisbus Citybus 12M","Irisbus Citybus 18M","Irisbus Citelis 12M",
+                        "Irisbus Citelis 18M", "SOR NB 18","Solaris Urbino 12M/II",
+                        "Solaris Urbino 12M/III","Solaris Urbino 18M/III","IVECO First FCLLI",
+                        "SOR BN 10.5","Škoda 14Tr/M","Škoda 15Tr/M","Škoda 24 Tr","Škoda 25 Tr","Škoda 30 Tr", "Škoda 31 Tr");
+        typField.setItems(options);
 
     }
 

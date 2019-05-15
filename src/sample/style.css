@@ -48,12 +48,19 @@
 }
 .table-view .table-column {
     -fx-alignment: CENTER;
+    -fx-pref-width:159px;
 }
+
 #tableViewUpdate{
     -fx-text-fill: white;
     -fx-background-color: #c6002f ;
+    -fx-font-weight: bold;
 }
 #tableViewDelete{
     -fx-text-fill: white;
     -fx-background-color: #c6002f ;
+    -fx-font-weight: bold;
+}
+.table-view{
+
 }

@@ -158,12 +158,15 @@ public class VozidlaController implements Initializable {
             Parent root = loader.load();
             Scene scene = new Scene(root);
 
-            stage.setTitle("Pridanie vozidla");
+            stage.setTitle("Pridanie vozidla do evidencie");
             stage.setScene(scene);
             stage.setMinHeight(720);
             stage.setMinWidth(480);
-            stage.show();
-            
+            stage.showAndWait();
+
+            vozidlaClick();
+
+
 
         } catch (
                 IOException e) {
@@ -181,7 +184,7 @@ public class VozidlaController implements Initializable {
 
 
 
-        String sqlID="SELECT id FROM VOZIDLA;";
+        String sqlID="SELECT id FROM vozidla;";
         ResultSet results=statement.executeQuery(sqlID);
         ArrayList<Integer> ids = new ArrayList<>();
         while(results.next()){
@@ -193,7 +196,7 @@ public class VozidlaController implements Initializable {
             delete[i] = new Button();
             int finalId = ids.get(i);
             delete[i].setOnAction(e -> {
-                String delete="DELETE FROM VOZIDLA WHERE id="+ finalId;
+                String delete="DELETE FROM vozidla WHERE id="+ finalId;
                 System.out.println("finalId:" + finalId);
                 try {
                     statement.executeUpdate(delete);
@@ -214,7 +217,7 @@ public class VozidlaController implements Initializable {
         Connection connection=connectionClass.getConnection();
         Statement statement=connection.createStatement();
 
-        String sqlID="SELECT id FROM VOZIDLA;";
+        String sqlID="SELECT id FROM vozidla;";
         ResultSet results=statement.executeQuery(sqlID);
         ArrayList<Integer> ids = new ArrayList<>();
         while(results.next()){
@@ -236,6 +239,7 @@ public class VozidlaController implements Initializable {
                     e.printStackTrace();
                 }
                 UpdateController updateController = loader.getController();
+
                 updateController.updateId(updateID);
 
 
@@ -244,45 +248,36 @@ public class VozidlaController implements Initializable {
 
 
                 updateController.updateStage(stageUpdate);
-                stageUpdate.setTitle("update");
+                stageUpdate.setTitle("Zmena údajov pri vozidle");
                 stageUpdate.setScene(scene);
                 stageUpdate.setMinHeight(720);
                 stageUpdate.setMinWidth(480);
-                stageUpdate.show();
+                stageUpdate.showAndWait();
+
+                vozidlaClick();
             }); {
 
+            }
         }
-    }
 
     }
 
-
-
-
-
-
-
-
-    ObservableList<TableModel> observableList= FXCollections.observableArrayList();
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
+    public void callDatabase(){
         try {
 
             ConnectionClass connectionClass = new ConnectionClass();
             Connection connection=connectionClass.getConnection();
             Statement statement=connection.createStatement();
 
-            String sql2="SELECT * FROM VOZIDLA;";
+            String sql2="SELECT * FROM vozidla";
             ResultSet resultSet=statement.executeQuery(sql2);
 
 
 
-           delete();
-           updateWindow();
+            delete();
+            updateWindow();
 
-                int i=0;
+            int i=0;
             while (resultSet.next()){
 
                 observableList.add(new TableModel(resultSet.getInt("evc"),resultSet.getString("spz"),resultSet.getString("vodic"),resultSet.getDate("stk"),resultSet.getString("typVozidla"),resultSet.getString("stavVozidla"),resultSet.getString("reklama"),delete[i],update[i]));
@@ -313,6 +308,21 @@ public class VozidlaController implements Initializable {
 
 
 
+    }
+
+
+
+
+
+
+
+
+
+    ObservableList<TableModel> observableList= FXCollections.observableArrayList();
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        callDatabase();
     }
 
 

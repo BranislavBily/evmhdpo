@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1102.0" prefWidth="1923.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.vodici.VodiciController">
+<AnchorPane prefHeight="1102.0" prefWidth="1923.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.vodici.VodiciController">
    <children>
       <Rectangle fx:id="BusIcon" arcHeight="5.0" arcWidth="5.0" fill="#444444" height="1116.0" layoutX="-2.0" layoutY="-3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="380.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c6002f" height="46.0" layoutX="-17.0" layoutY="-1.0" opacity="0.9" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1940.0" />
@@ -90,7 +90,7 @@
          </image>
       </ImageView>
 
-      <TableView id="tableView" fx:id="tableView" layoutX="431.0" layoutY="216.0" prefHeight="821.0" prefWidth="1292.0" styleClass="style.css">
+      <TableView id="tableView" fx:id="tableView" layoutX="431.0" layoutY="216.0" prefHeight="550.0" prefWidth="1431.0" styleClass="style.css">
          <columns>
             <TableColumn fx:id="vodicID" prefWidth="150.0" text="ID vodiča" />
             <TableColumn fx:id="vodicName" prefWidth="150.0" text="Meno vodiča" />
@@ -105,16 +105,16 @@
             <Insets />
          </opaqueInsets>
       </TableView>
-      <Button fx:id="add" layoutX="1778.0" layoutY="216.0" mnemonicParsing="false" onAction="#addButton" prefHeight="46.0" prefWidth="106.0" style="-fx-background-color: #c6002f;" text="Add" textFill="WHITE">
+      <Button fx:id="add" layoutX="1690.0" layoutY="792.0" mnemonicParsing="false" onAction="#addButton" prefHeight="46.0" prefWidth="172.0" style="-fx-background-color: #c6002f;" text="Add" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button layoutX="1778.0" layoutY="285.0" mnemonicParsing="false" onAction="#vodiciClick" prefHeight="46.0" prefWidth="106.0" style="-fx-background-color: #c6002f;" text="Refresh" textFill="WHITE">
+      <Button layoutX="1475.0" layoutY="792.0" mnemonicParsing="false" onAction="#vodiciClick" prefHeight="46.0" prefWidth="172.0" style="-fx-background-color: #c6002f;" text="Refresh" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="13.0" />
+            <Font name="System Bold" size="12.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />

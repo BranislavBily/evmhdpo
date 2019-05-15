@@ -7,23 +7,27 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="324.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.servis.AddController">
+<AnchorPane prefHeight="324.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.servis.AddController">
    <children>
-      <Label layoutX="32.0" layoutY="30.0" prefHeight="42.0" prefWidth="202.0" text="Pridanie záznamu do tabuľky" />
+      <Label layoutX="128.0" layoutY="33.0" prefHeight="42.0" prefWidth="232.0" text="Pridanie záznamu do tabuľky">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
       <TextField fx:id="evcField" layoutX="32.0" layoutY="93.0" promptText="EVČ vodiča" />
       <DatePicker fx:id="odstaveneField" layoutX="235.0" layoutY="93.0" promptText="Odstavené od" />
       <TextField fx:id="zavadaField" layoutX="32.0" layoutY="139.0" promptText="Závada" />
-      <ComboBox fx:id="halaField" layoutX="235.0" layoutY="139.0" onMouseClicked="#obsahComboBox2" prefHeight="26.0" prefWidth="174.0" promptText="Potrebná hala">
+      <ComboBox fx:id="halaField" layoutX="283.0" layoutY="138.0" onMouseClicked="#obsahComboBox2" prefHeight="26.0" prefWidth="168.0" promptText="Potrebná hala">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></ComboBox>
       <DatePicker fx:id="odovzdanieField" layoutX="32.0" layoutY="182.0" promptText="Termín odovzdania" />
-      <Button fx:id="pridatButton" layoutX="292.0" layoutY="222.0" mnemonicParsing="false" onAction="#insert" prefHeight="26.0" prefWidth="74.0" style="-fx-background-color: #c6002f;" text="Pridať" textFill="WHITE">
+      <Button fx:id="pridatButton" layoutX="169.0" layoutY="242.0" mnemonicParsing="false" onAction="#insert" prefHeight="26.0" prefWidth="155.0" style="-fx-background-color: #c6002f;" text="Pridať" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <ComboBox fx:id="stavField" layoutX="234.0" layoutY="181.0" onMouseClicked="#obsahComboBox" prefHeight="26.0" prefWidth="174.0" promptText="--Stav Opravy---">
+      <ComboBox fx:id="stavField" layoutX="283.0" layoutY="181.0" onMouseClicked="#obsahComboBox" prefHeight="26.0" prefWidth="168.0" promptText="--Stav Opravy---">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></ComboBox>

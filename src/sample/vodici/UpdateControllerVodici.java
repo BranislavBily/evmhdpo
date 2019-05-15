@@ -36,7 +36,7 @@ public class UpdateControllerVodici implements Initializable {
     private Stage stage;
 
 
-    VodiciController vodiciController = new VodiciController();
+
     int fID;
 
     public void updateId(int cislo){

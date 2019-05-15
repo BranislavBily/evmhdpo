@@ -12,6 +12,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import sample.User;
+import sample.vozidla.VozidlaController;
 
 import java.io.IOException;
 import java.net.URL;
@@ -32,10 +34,12 @@ public class LoginController implements Initializable {
     @FXML
     private Label alertInfo;
     private CheckBox checkBox;
+    public static User user;
 
-    private String username;
+    public static String userName;
     private String password;
     private int autoLogin;
+    public int userID;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -51,11 +55,11 @@ public class LoginController implements Initializable {
         });
 
 
-    }
 
-    public void selectUser() throws SQLException {
 
     }
+
+
 
 
   @FXML
@@ -78,12 +82,29 @@ public class LoginController implements Initializable {
       }else{
           System.out.println("Prihlásenie úspešné");
 
+          userID=results.getInt("id");
+          userName=results.getString("name");
+          password=results.getString("password");
+
+
+          System.out.println(userID);
+
+          user= new User();
+          user.setId(userID);
+          user.setMeno(userName);
+          user.setPassword(password);
+
+
+
           try {
               Stage stage = (Stage) textField.getScene().getWindow();
               FXMLLoader loader = new FXMLLoader(getClass().getResource("../vozidla/Vozidla.fxml"));
               Parent root = loader.load();
 
               Scene scene = new Scene(root);
+
+
+
 
               stage.setTitle("Vozidlá");
               stage.setScene(scene);
@@ -100,6 +121,8 @@ public class LoginController implements Initializable {
       }
 
     }
+
+
   }
 
 

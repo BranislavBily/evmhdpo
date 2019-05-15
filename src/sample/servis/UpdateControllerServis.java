@@ -39,7 +39,7 @@ public class UpdateControllerServis implements Initializable {
     private Stage stage;
 
 
-    ServisController servisController = new ServisController();
+
     int fID;
 
     public void updateId(int cislo){

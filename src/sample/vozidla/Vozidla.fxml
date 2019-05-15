@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="vozidlaFXML" prefHeight="1102.0" prefWidth="1923.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.vozidla.VozidlaController">
+<AnchorPane id="vozidlaFXML" prefHeight="1102.0" prefWidth="1923.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.vozidla.VozidlaController">
    <children>
       <Rectangle fx:id="BusIcon" arcHeight="5.0" arcWidth="5.0" fill="#444444" height="1116.0" layoutX="-2.0" layoutY="-3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="380.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c6002f" height="46.0" layoutX="-17.0" layoutY="-1.0" opacity="0.9" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1940.0" />
@@ -22,7 +22,7 @@
             <Image url="@../images/Layer%201.png" />
          </image>
       </ImageView>
-      <Label layoutX="53.0" layoutY="274.0" text="Administátor" textFill="WHITE">
+      <Label fx:id="userLabel" alignment="CENTER" layoutX="88.0" layoutY="274.0" prefHeight="58.0" prefWidth="200.0" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="40.0" />
          </font>

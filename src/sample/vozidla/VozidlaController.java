@@ -16,6 +16,11 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import sample.User;
+import sample.login.LoginController;
+import sample.servis.ServisController;
+import sample.vodici.VodiciController;
+import sun.rmi.runtime.Log;
 
 import java.io.IOException;
 import java.net.URL;
@@ -23,7 +28,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class VozidlaController implements Initializable {
+public class VozidlaController extends User implements Initializable {
+
 
 
 
@@ -31,6 +37,7 @@ public class VozidlaController implements Initializable {
 
     /*Vozidla Controller*/
 
+    private String meno;
     public TableView<TableModel> tableView;
     public TableColumn<TableModel,String> evcColumn;
     public TableColumn<TableModel,String> vodiciColumn;
@@ -42,12 +49,15 @@ public class VozidlaController implements Initializable {
     public TableColumn<TableModel,Button> updateColumn;
     public TableColumn<TableModel,Button> deleteColumn;
 
+    public Label userLabel;
+
 
     Button[] delete;
     Button[] update;
     int updateID;
     Stage stageUpdate;
     int updateIdecko;
+
 
 
 
@@ -59,7 +69,10 @@ public class VozidlaController implements Initializable {
     private javafx.scene.control.Label VodiciButton;
 
 
+
     public VozidlaController() {
+
+
     }
 
 
@@ -70,6 +83,8 @@ public class VozidlaController implements Initializable {
             Stage stageVozidla = (Stage) VozidlaButton.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(VozidlaController.class.getResource("../vozidla/Vozidla.fxml"));
             Parent root = loader.load();
+
+
 
             Scene scene = new Scene(root);
 
@@ -92,6 +107,8 @@ public class VozidlaController implements Initializable {
             FXMLLoader loader = new FXMLLoader(VozidlaController.class.getResource("../vodici/Vodici.fxml"));
             Parent root = loader.load();
 
+
+
             Scene scene = new Scene(root);
 
             stageVodici.setTitle("Vodiči");
@@ -112,6 +129,8 @@ public class VozidlaController implements Initializable {
             Stage stageServis = (Stage) ServisButton.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(VozidlaController.class.getResource("../servis/Servis.fxml"));
             Parent root = loader.load();
+
+
 
             Scene scene = new Scene(root);
 
@@ -317,12 +336,21 @@ public class VozidlaController implements Initializable {
 
 
 
-
     ObservableList<TableModel> observableList= FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         callDatabase();
+        userLabel.setText(LoginController.user.getMeno());
+        System.out.println("meno je : "+VozidlaController.super.getMeno());
+
+
+
+
+
+
+
+
     }
 
 

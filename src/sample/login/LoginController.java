@@ -33,9 +33,7 @@ public class LoginController implements Initializable {
     private TextField textField;
     @FXML
     private Label alertInfo;
-    @FXML
     private CheckBox checkBox;
-
     public static User user;
 
     public static String userName;
@@ -55,7 +53,6 @@ public class LoginController implements Initializable {
                 passField.setText(oldVal);
             }
         });
-
 
 
 
@@ -89,17 +86,6 @@ public class LoginController implements Initializable {
           userName=results.getString("name");
           password=results.getString("password");
 
-          /* Pridanie Remember me */
-
-       /*   if(checkBox.isSelected()){
-              passField.setText(password);
-              textField.setText(userName);
-          }else {
-              //passField.setText("");
-             // textField.setText("");
-          }
-         // Stage st = (Stage) checkBox.getScene().getWindow(); */
-
 
           System.out.println(userID);
 
@@ -116,6 +102,9 @@ public class LoginController implements Initializable {
               Parent root = loader.load();
 
               Scene scene = new Scene(root);
+
+
+
 
               stage.setTitle("Vozidlá");
               stage.setScene(scene);

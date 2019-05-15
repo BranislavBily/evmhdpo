@@ -37,7 +37,7 @@ public class UpdateController implements Initializable {
     public TextField reklamaField;
 
     private Stage stage;
-    VozidlaController vozidlaController = new VozidlaController();
+
     int fID;
 
     public void updateId(int cislo){

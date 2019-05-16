@@ -171,8 +171,10 @@ public class ServisController extends User implements Initializable {
 
             stage.setTitle("Pridanie servisu do evidencie");
             stage.setScene(scene);
-            stage.setMinHeight(820);
+            stage.setMinHeight(380);
             stage.setMinWidth(480);
+            stage.setMaxHeight(380);
+            stage.setMaxWidth(480);
             stage.showAndWait();
 
             servisClick();
@@ -258,8 +260,10 @@ public class ServisController extends User implements Initializable {
                 updateController.updateStage(stageUpdate);
                 stageUpdate.setTitle("Zmena údajov pri servise vozidla");
                 stageUpdate.setScene(scene);
-                stageUpdate.setMinHeight(720);
-                stageUpdate.setMinWidth(480);
+                stageUpdate.setMinHeight(420);
+                stageUpdate.setMinWidth(500);
+                stageUpdate.setMaxHeight(420);
+                stageUpdate.setMaxWidth(500);
                 stageUpdate.showAndWait();
 
                 servisClick();

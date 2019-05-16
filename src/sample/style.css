@@ -55,11 +55,13 @@
     -fx-text-fill: white;
     -fx-background-color: #c6002f ;
     -fx-font-weight: bold;
+    -fx-cursor: hand;
 }
 #tableViewDelete{
     -fx-text-fill: white;
     -fx-background-color: #c6002f ;
     -fx-font-weight: bold;
+    -fx-cursor: hand;
 }
 .table-view{
 

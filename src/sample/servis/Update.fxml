@@ -7,23 +7,27 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="324.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.servis.UpdateControllerServis">
+<AnchorPane prefHeight="324.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.servis.UpdateControllerServis">
    <children>
-      <Label layoutX="42.0" layoutY="40.0" prefHeight="42.0" prefWidth="202.0" text="Zmena záznamu v tabuľke" />
-      <TextField fx:id="evcField" layoutX="32.0" layoutY="93.0" promptText="EVČ vodiča" />
-      <DatePicker fx:id="odstaveneField" layoutX="235.0" layoutY="93.0" promptText="Odstavené od" />
-      <TextField fx:id="zavadaField" layoutX="32.0" layoutY="139.0" promptText="Závada" />
-      <ComboBox fx:id="halaField" layoutX="235.0" layoutY="139.0" onMouseClicked="#obsahComboBox2" prefHeight="26.0" prefWidth="174.0" promptText="Potrebná hala">
+      <Label layoutX="139.0" layoutY="30.0" prefHeight="42.0" prefWidth="209.0" text="Zmena záznamu v tabuľke">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <TextField fx:id="evcField" layoutX="55.0" layoutY="88.0" promptText="EVČ vodiča" />
+      <DatePicker fx:id="odstaveneField" layoutX="258.0" layoutY="88.0" prefHeight="26.0" prefWidth="174.0" promptText="Odstavené od" />
+      <TextField fx:id="zavadaField" layoutX="55.0" layoutY="134.0" promptText="Závada" />
+      <ComboBox fx:id="halaField" layoutX="258.0" layoutY="134.0" onMouseClicked="#obsahComboBox2" prefHeight="26.0" prefWidth="174.0" promptText="Potrebná hala">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></ComboBox>
-      <DatePicker fx:id="odovzdanieField" layoutX="32.0" layoutY="182.0" promptText="Termín odovzdania" />
-      <Button fx:id="pridatButton" layoutX="292.0" layoutY="222.0" mnemonicParsing="false" onAction="#insert" prefHeight="26.0" prefWidth="74.0" style="-fx-background-color: #c6002f;" text="Pridať" textFill="WHITE">
+      <DatePicker fx:id="odovzdanieField" layoutX="55.0" layoutY="177.0" prefHeight="26.0" prefWidth="187.0" promptText="Termín odovzdania" />
+      <Button fx:id="pridatButton" layoutX="163.0" layoutY="240.0" mnemonicParsing="false" onAction="#insert" prefHeight="26.0" prefWidth="161.0" style="-fx-background-color: #c6002f;" text="Zmeniť" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <ComboBox fx:id="stavField" layoutX="234.0" layoutY="181.0" onMouseClicked="#obsahComboBox" prefHeight="26.0" prefWidth="174.0" promptText="--Stav Opravy---">
+      <ComboBox fx:id="stavField" layoutX="257.0" layoutY="176.0" onMouseClicked="#obsahComboBox" prefHeight="26.0" prefWidth="174.0" promptText="--Stav Opravy---">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></ComboBox>

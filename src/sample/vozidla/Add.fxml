@@ -24,11 +24,11 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <ComboBox fx:id="stavField" layoutX="234.0" layoutY="181.0" onMouseClicked="#obsahComboBox" prefHeight="26.0" prefWidth="174.0" promptText="--Stav Vozidla---">
+      <ComboBox fx:id="stavField" layoutX="234.0" layoutY="181.0" onMouseClicked="#obsahComboBox" prefHeight="26.0" prefWidth="187.0" promptText="--Stav Vozidla---">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></ComboBox>
-      <ComboBox fx:id="typField" layoutX="32.0" layoutY="181.0" onMouseClicked="#obsahComboBoxTyp" prefHeight="26.0" prefWidth="174.0" promptText="--Typ Vozidla---">
+      <ComboBox fx:id="typField" layoutX="32.0" layoutY="181.0" onMouseClicked="#obsahComboBoxTyp" prefHeight="26.0" prefWidth="187.0" promptText="--Typ Vozidla---">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

@@ -15,16 +15,16 @@
          <font>
             <Font size="18.0" />
          </font></Label>
-      <TextField fx:id="evcField" layoutX="32.0" layoutY="93.0" promptText="EVČ vodiča" />
-      <TextField fx:id="nameField" layoutX="247.0" layoutY="93.0" promptText="Meno" />
-      <TextField fx:id="surnameField" layoutX="32.0" layoutY="139.0" promptText="Priezvisko" />
-      <DatePicker fx:id="prehliadkaField" layoutX="247.0" layoutY="139.0" promptText="Platnosť prehliadky" />
-      <TextField fx:id="evcVehicleField" layoutX="32.0" layoutY="182.0" promptText="Evč vozidla" />
-      <Button fx:id="pridatButton" layoutX="166.0" layoutY="237.0" mnemonicParsing="false" onAction="#insert" prefHeight="26.0" prefWidth="155.0" style="-fx-background-color: #c6002f;" text="Pridať" textFill="WHITE">
+      <TextField fx:id="evcField" layoutX="49.0" layoutY="93.0" prefHeight="26.0" prefWidth="182.0" promptText="EVČ vodiča" />
+      <TextField fx:id="nameField" layoutX="264.0" layoutY="93.0" prefHeight="26.0" prefWidth="182.0" promptText="Meno" />
+      <TextField fx:id="surnameField" layoutX="49.0" layoutY="139.0" prefHeight="26.0" prefWidth="182.0" promptText="Priezvisko" />
+      <DatePicker fx:id="prehliadkaField" layoutX="264.0" layoutY="139.0" prefHeight="26.0" prefWidth="182.0" promptText="Platnosť prehliadky" />
+      <TextField fx:id="evcVehicleField" layoutX="49.0" layoutY="182.0" prefHeight="26.0" prefWidth="182.0" promptText="Evč vozidla" />
+      <Button fx:id="pridatButton" layoutX="169.0" layoutY="246.0" mnemonicParsing="false" onAction="#insert" prefHeight="26.0" prefWidth="155.0" style="-fx-background-color: #c6002f;" text="Pridať" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <ComboBox fx:id="stavField" layoutX="247.0" layoutY="181.0" onMouseClicked="#obsahComboBox" prefHeight="26.0" prefWidth="174.0" promptText="--Stav Vodiča---">
+      <ComboBox fx:id="stavField" layoutX="264.0" layoutY="181.0" onMouseClicked="#obsahComboBox" prefHeight="26.0" prefWidth="182.0" promptText="--Stav Vodiča---">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></ComboBox>

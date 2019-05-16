@@ -7,24 +7,28 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="324.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.vozidla.UpdateController">
    <children>
-      <Label layoutX="42.0" layoutY="40.0" prefHeight="42.0" prefWidth="202.0" text="Zmena záznamu v tabuľke" />
-      <TextField fx:id="evcField" layoutX="42.0" layoutY="103.0" promptText="EVČ" />
+      <Label layoutX="133.0" layoutY="38.0" prefHeight="42.0" prefWidth="221.0" text="Zmena záznamu v tabuľke">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <TextField fx:id="evcField" layoutX="42.0" layoutY="103.0" prefHeight="26.0" prefWidth="150.0" promptText="EVČ" />
       <TextField fx:id="spzField" layoutX="245.0" layoutY="103.0" promptText="ŠPZ" />
-      <TextField fx:id="vodicField" layoutX="42.0" layoutY="149.0" promptText="Vodič" />
-      <DatePicker fx:id="stkField" layoutX="245.0" layoutY="149.0" promptText="STK do" />
-      <ComboBox fx:id="stavField" layoutX="245.0" layoutY="190.0" onMouseClicked="#obsahComboBox" prefHeight="26.0" prefWidth="174.0" promptText="--Stav Vozidla---">
+      <TextField fx:id="vodicField" layoutX="42.0" layoutY="149.0" prefHeight="26.0" prefWidth="150.0" promptText="Vodič" />
+      <DatePicker fx:id="stkField" layoutX="245.0" layoutY="149.0" prefHeight="26.0" prefWidth="178.0" promptText="STK do" />
+      <ComboBox fx:id="stavField" layoutX="245.0" layoutY="190.0" onMouseClicked="#obsahComboBox" prefHeight="26.0" prefWidth="187.0" promptText="--Stav Vozidla---">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></ComboBox>
-      <TextField fx:id="reklamaField" layoutX="42.0" layoutY="232.0" promptText="Reklama" />
-      <Button layoutX="302.0" layoutY="232.0" mnemonicParsing="false" onAction="#insert" prefHeight="26.0" prefWidth="74.0" style="-fx-background-color: #c6002f;" text="Pridať" textFill="WHITE">
+      <TextField fx:id="reklamaField" layoutX="42.0" layoutY="232.0" prefHeight="26.0" prefWidth="150.0" promptText="Reklama" />
+      <Button layoutX="169.0" layoutY="283.0" mnemonicParsing="false" onAction="#insert" prefHeight="26.0" prefWidth="149.0" style="-fx-background-color: #c6002f;" text="Zmeniť" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <ComboBox fx:id="typField" layoutX="42.0" layoutY="190.0" onMouseClicked="#obsahComboBoxTyp" prefHeight="26.0" prefWidth="174.0" promptText="--Typ Vozidla---">
+      <ComboBox fx:id="typField" layoutX="42.0" layoutY="190.0" onMouseClicked="#obsahComboBoxTyp" prefHeight="26.0" prefWidth="187.0" promptText="--Typ Vozidla---">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

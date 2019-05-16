@@ -168,8 +168,10 @@ public class VodiciController extends User implements Initializable {
 
             stage.setTitle("Pridanie vodiča do evidencie");
             stage.setScene(scene);
-            stage.setMinHeight(720);
-            stage.setMinWidth(480);
+            stage.setMinHeight(380);
+            stage.setMinWidth(500);
+            stage.setMaxHeight(380);
+            stage.setMaxWidth(500);
             stage.showAndWait();
 
             vodiciClick();
@@ -255,8 +257,10 @@ public class VodiciController extends User implements Initializable {
                 updateController.updateStage(stageUpdate);
                 stageUpdate.setTitle("Zmena údajov pri vodičovi");
                 stageUpdate.setScene(scene);
-                stageUpdate.setMinHeight(720);
-                stageUpdate.setMinWidth(480);
+                stageUpdate.setMinHeight(420);
+                stageUpdate.setMinWidth(520);
+                stageUpdate.setMaxHeight(420);
+                stageUpdate.setMaxWidth(520);
                 stageUpdate.showAndWait();
 
                 vodiciClick();

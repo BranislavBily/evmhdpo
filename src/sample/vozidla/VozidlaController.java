@@ -179,8 +179,10 @@ public class VozidlaController extends User implements Initializable {
 
             stage.setTitle("Pridanie vozidla do evidencie");
             stage.setScene(scene);
-            stage.setMinHeight(720);
-            stage.setMinWidth(480);
+            stage.setMinHeight(420);
+            stage.setMinWidth(500);
+            stage.setMaxHeight(420);
+            stage.setMaxWidth(500);
             stage.showAndWait();
 
             vozidlaClick();
@@ -269,8 +271,10 @@ public class VozidlaController extends User implements Initializable {
                 updateController.updateStage(stageUpdate);
                 stageUpdate.setTitle("Zmena údajov pri vozidle");
                 stageUpdate.setScene(scene);
-                stageUpdate.setMinHeight(720);
-                stageUpdate.setMinWidth(480);
+                stageUpdate.setMinHeight(400);
+                stageUpdate.setMinWidth(520);
+                stageUpdate.setMaxHeight(400);
+                stageUpdate.setMaxWidth(520);
                 stageUpdate.showAndWait();
 
                 vozidlaClick();

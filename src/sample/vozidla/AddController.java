@@ -26,7 +26,7 @@ public class AddController {
 
     public TextField evcField;
     public TextField spzField;
-    public TextField vodicField;
+    public ComboBox vodicField;
     public DatePicker stkField;
     public ComboBox typField;
     public ComboBox stavField;
@@ -41,7 +41,7 @@ public class AddController {
         ConnectionClass connectionClass = new ConnectionClass();
         Connection connection=connectionClass.getConnection();
 
-        String sql="INSERT INTO vozidla (evc, spz, vodic,stk, typVozidla, stavVozidla, reklama ) VALUES ('"+Integer.parseInt(evcField.getText())+"','"+spzField.getText()+"','"+vodicField.getText()+"','"+stkField.getValue()+"','"+typField.getValue().toString()+"','"+stavField.getValue().toString()+"','"+reklamaField.getText()+"')";
+        String sql="INSERT INTO vozidla (evc, spz, vodic,stk, typVozidla, stavVozidla, reklama ) VALUES ('"+Integer.parseInt(evcField.getText())+"','"+spzField.getText()+"','"+vodicField.getValue().toString()+"','"+stkField.getValue()+"','"+typField.getValue().toString()+"','"+stavField.getValue().toString()+"','"+reklamaField.getText()+"')";
         Statement statement=connection.createStatement();
         statement.executeUpdate(sql);
         closeStage();
@@ -66,6 +66,26 @@ public class AddController {
                         "Solaris Urbino 12M/III","Solaris Urbino 18M/III","IVECO First FCLLI",
                         "SOR BN 10.5","Škoda 14Tr/M","Škoda 15Tr/M","Škoda 24 Tr","Škoda 25 Tr","Škoda 30 Tr", "Škoda 31 Tr");
         typField.setItems(options);
+
+    }
+
+    public void obsahComboBoxVodic() throws SQLException {
+        ConnectionClass connectionClass = new ConnectionClass();
+        Connection connection=connectionClass.getConnection();
+
+        ObservableList<String> options = FXCollections.observableArrayList();
+
+        String sql2="SELECT CONCAT(name, \" \", surname)AS name FROM vodici";
+        Statement statement=connection.createStatement();
+        ResultSet resultSet=statement.executeQuery(sql2);
+        int i=0;
+        while (resultSet.next()){
+
+            options.add(resultSet.getString("name"));
+            i++;
+        }
+        vodicField.setItems(options);
+
 
     }
 

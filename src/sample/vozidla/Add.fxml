@@ -17,7 +17,6 @@
          </font></Label>
       <TextField fx:id="evcField" layoutX="32.0" layoutY="93.0" promptText="EVČ" />
       <TextField fx:id="spzField" layoutX="235.0" layoutY="93.0" promptText="ŠPZ" />
-      <TextField fx:id="vodicField" layoutX="32.0" layoutY="139.0" promptText="Vodič" />
       <DatePicker fx:id="stkField" layoutX="235.0" layoutY="139.0" prefHeight="26.0" prefWidth="187.0" promptText="STK do" />
       <TextField fx:id="reklamaField" layoutX="32.0" layoutY="222.0" promptText="Reklama" />
       <Button fx:id="pridatButton" layoutX="166.0" layoutY="276.0" mnemonicParsing="false" onAction="#insert" prefHeight="26.0" prefWidth="155.0" style="-fx-background-color: #c6002f;" text="Pridať" textFill="WHITE">
@@ -29,6 +28,11 @@
             <Cursor fx:constant="HAND" />
          </cursor></ComboBox>
       <ComboBox fx:id="typField" layoutX="32.0" layoutY="181.0" onMouseClicked="#obsahComboBoxTyp" prefHeight="26.0" prefWidth="187.0" promptText="--Typ Vozidla---">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ComboBox>
+      <ComboBox fx:id="vodicField" layoutX="32.0" layoutY="139.0" onMouseClicked="#obsahComboBoxVodic" prefHeight="26.0" prefWidth="187.0" promptText="--Vyberte vodiča---">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

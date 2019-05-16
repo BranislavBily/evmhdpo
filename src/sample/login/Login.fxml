@@ -44,7 +44,7 @@
                         <Image url="@../images/key-solid.png" />
                      </image>
                   </ImageView>
-                  <CheckBox id="Checkbox" layoutX="62.0" layoutY="379.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="206.0" style="-fx-font-family: Roboto; -fx-background-color: white;" text="Zapamätať si" textOverrun="LEADING_ELLIPSIS">
+                  <CheckBox id="Checkbox" fx:id="checkBox" layoutX="62.0" layoutY="379.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="206.0" style="-fx-font-family: Roboto; -fx-background-color: white;" text="Zapamätať si" textOverrun="LEADING_ELLIPSIS">
                   </CheckBox>
                   <Label fx:id="alertInfo" alignment="CENTER" contentDisplay="CENTER" layoutX="127.0" layoutY="324.0" prefHeight="28.0" prefWidth="326.0" style="-fx-text-alignment: center; -fx-font-family: Roboto;" textAlignment="CENTER" textFill="#ed0000">
                      <font>

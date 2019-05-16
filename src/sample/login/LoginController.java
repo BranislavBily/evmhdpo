@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import sample.Controller;
 import sample.User;
 import sample.vozidla.VozidlaController;
 
@@ -23,23 +24,29 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.prefs.Preferences;
 
 public class LoginController implements Initializable {
 
 
     @FXML
     private PasswordField passField;
+    //premenná pre username
     @FXML
     private TextField textField;
     @FXML
     private Label alertInfo;
+    @FXML
     private CheckBox checkBox;
+
     public static User user;
 
     public static String userName;
     private String password;
-    private int autoLogin;
+
     public int userID;
+
+    Preferences preferences;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -53,6 +60,16 @@ public class LoginController implements Initializable {
                 passField.setText(oldVal);
             }
         });
+
+        preferences = Preferences.userNodeForPackage(LoginController.class);
+
+        if(preferences!=null){
+            if(preferences.get("textField",null) !=null && !preferences.get("textField",null).isEmpty()){
+                textField.setText(preferences.get("textField",null));
+                passField.setText(preferences.get("passField",null));
+                checkBox.setSelected(preferences.getBoolean("checkBox",false));
+            }
+        }
 
 
 
@@ -82,6 +99,18 @@ public class LoginController implements Initializable {
       }else{
           System.out.println("Prihlásenie úspešné");
 
+          if(checkBox.isSelected()){
+              preferences.put("textField",textField.getText());
+              preferences.put("passField",passField.getText());
+              preferences.putBoolean("checkBox",true);
+
+
+          }else{
+              preferences.put("textField","");
+              preferences.put("passField","");
+              preferences.putBoolean("checkBox",false);
+          }
+
           userID=results.getInt("id");
           userName=results.getString("name");
           password=results.getString("password");
@@ -97,7 +126,7 @@ public class LoginController implements Initializable {
 
 
           try {
-              Stage stage = (Stage) textField.getScene().getWindow();
+              Stage stage = (Stage) checkBox.getScene().getWindow();
               FXMLLoader loader = new FXMLLoader(getClass().getResource("../vozidla/Vozidla.fxml"));
               Parent root = loader.load();
 

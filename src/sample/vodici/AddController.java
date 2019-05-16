@@ -5,10 +5,7 @@ import connectivity.ConnectionClass;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.sql.Connection;
@@ -29,16 +26,21 @@ public class AddController {
     public DatePicker prehliadkaField;
     public ComboBox evcVehicleField;
     public ComboBox stavField;
+    public Label invalidAlert;
 
 
     public void insert() throws SQLException {
         ConnectionClass connectionClass = new ConnectionClass();
         Connection connection=connectionClass.getConnection();
-
-        String sql="INSERT INTO `vodici` (evc_vodica,name,surname,evc_vehicle,stav,prehliadka ) VALUES ('"+Integer.parseInt(evcField.getText())+"','"+nameField.getText()+"','"+surnameField.getText()+"','"+Integer.parseInt(evcVehicleField.getValue().toString())+"','"+stavField.getValue().toString()+"','"+prehliadkaField.getValue().toString()+"')";
-        Statement statement=connection.createStatement();
-        statement.executeUpdate(sql);
-        closeStage();
+        try {
+            String sql = "INSERT INTO `vodici` (evc_vodica,name,surname,evc_vehicle,stav,prehliadka ) VALUES ('" + Integer.parseInt(evcField.getText()) + "','" + nameField.getText() + "','" + surnameField.getText() + "','" + Integer.parseInt(evcVehicleField.getValue().toString()) + "','" + stavField.getValue().toString() + "','" + prehliadkaField.getValue().toString() + "')";
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(sql);
+            closeStage();
+        }
+        catch(Exception e){
+            invalidAlert.setText("Vyplňte všetky polia správne !");
+        }
 
 
     }

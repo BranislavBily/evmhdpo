@@ -5,10 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DateCell;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
@@ -25,7 +22,7 @@ import java.util.ResourceBundle;
  * @Author: Kristian Kičinka
  * @Date: 5. 4. 2019, Pi
  **/
-public class UpdateController implements Initializable {
+public class UpdateController  extends VozidlaController implements Initializable{
 
 
     public TextField evcField;
@@ -35,6 +32,13 @@ public class UpdateController implements Initializable {
     public ComboBox typField;
     public ComboBox stavField;
     public TextField reklamaField;
+    public Label invalidAlert;
+    public Label invalidEVC;
+    public Label invalidSPZ;
+    public Label invalidSTK;
+    public Label invalidStav;
+    public Label invalidTyp;
+    public Label invalidVodic;
 
     private Stage stage;
 
@@ -97,12 +101,39 @@ public class UpdateController implements Initializable {
         ConnectionClass connectionClass = new ConnectionClass();
         Connection connection=connectionClass.getConnection();
 
-
+        try{
         String sql="UPDATE `vozidla` SET `evc`='"+Integer.parseInt(evcField.getText())+"',`spz`='"+spzField.getText()+"',`vodic`='"+vodicField.getValue().toString()+"',`stk`='"+stkField.getValue().toString()+"',`typVozidla`='"+typField.getValue().toString()+"',`stavVozidla`='"+stavField.getValue().toString()+"',`reklama`='"+reklamaField.getText()+"' WHERE `id`='"+fID+"'";
 
         Statement statement=connection.createStatement();
         statement.executeUpdate(sql);
         stage.close();
+        }
+        catch(Exception e){
+            invalidAlert.setText("Vyplňte všetky polia správne !");
+            invalidEVC.setText("");
+            invalidSPZ.setText("");
+            invalidSTK.setText("");
+            invalidStav.setText("");
+            invalidTyp.setText("");
+            invalidVodic.setText("");
+            validation();
+        }
+
+    }
+    public void validation(){
+        if(!evcField.getText().matches(".*\\d.*"))
+            invalidEVC.setText("!");
+        if(spzField.getText().trim().contains(""))
+            invalidSPZ.setText("!");
+        if(vodicField.getValue() == null)
+            invalidVodic.setText("!");
+        if(stavField.getValue() == null)
+            invalidStav.setText("!");
+        if(stkField.getValue()== null)
+            invalidSTK.setText("!");
+        if(typField.getValue() == null)
+            invalidTyp.setText("!");
+
 
 
     }

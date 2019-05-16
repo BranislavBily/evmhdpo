@@ -5,10 +5,7 @@ import connectivity.ConnectionClass;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -28,6 +25,7 @@ public class AddController {
     public DatePicker odovzdanieField;
     public Button pridatButton;
     public ComboBox stavField;
+    public Label invalidAlert;
 
     @FXML
     
@@ -37,10 +35,15 @@ public class AddController {
         ConnectionClass connectionClass = new ConnectionClass();
         Connection connection=connectionClass.getConnection();
 
-        String sql="INSERT INTO servis (evc_vehicle,odstavene,zavada,hala,stav,oprava) VALUES ('"+Integer.parseInt(evcField.getValue().toString())+"','"+odstaveneField.getValue().toString()+"','"+zavadaField.getText()+"','"+halaField.getValue().toString()+"','"+stavField.getValue().toString()+"','"+odovzdanieField.getValue().toString()+"')";
-        Statement statement=connection.createStatement();
-        statement.executeUpdate(sql);
-        closeStage();
+        try {
+            String sql = "INSERT INTO servis (evc_vehicle,odstavene,zavada,hala,stav,oprava) VALUES ('" + Integer.parseInt(evcField.getValue().toString()) + "','" + odstaveneField.getValue().toString() + "','" + zavadaField.getText() + "','" + halaField.getValue().toString() + "','" + stavField.getValue().toString() + "','" + odovzdanieField.getValue().toString() + "')";
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(sql);
+            closeStage();
+        }
+        catch(Exception e){
+            invalidAlert.setText("Vyplňte všetky polia správne !");
+        }
 
 
     }

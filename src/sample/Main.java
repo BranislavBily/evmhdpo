@@ -18,12 +18,15 @@ public class Main extends Application {
         this.primaryStage=primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("login/Login.fxml"));
         root.setId("pane");
+        Image image = new Image("/sample/images/icon.png");
+        primaryStage.getIcons().add(image);
         primaryStage.setTitle("Evidencia vozidiel MHD");
         primaryStage.setScene(new Scene(root));
        // root.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
         primaryStage.setMaximized(true);
         primaryStage.setMinHeight(1080);
         primaryStage.setMinWidth(1920);
+
         //primaryStage.setFullScreen(true);
         Application.setUserAgentStylesheet(Application.STYLESHEET_MODENA);
         StyleManager.getInstance().addUserAgentStylesheet(getClass().getResource("style.css").toString());

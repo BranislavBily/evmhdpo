@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -26,7 +27,7 @@ public class AddController {
     public TextField evcField;
     public TextField surnameField;
     public DatePicker prehliadkaField;
-    public TextField evcVehicleField;
+    public ComboBox evcVehicleField;
     public ComboBox stavField;
 
 
@@ -34,7 +35,7 @@ public class AddController {
         ConnectionClass connectionClass = new ConnectionClass();
         Connection connection=connectionClass.getConnection();
 
-        String sql="INSERT INTO `vodici` (evc_vodica,name,surname,evc_vehicle,stav,prehliadka ) VALUES ('"+Integer.parseInt(evcField.getText())+"','"+nameField.getText()+"','"+surnameField.getText()+"','"+Integer.parseInt(evcVehicleField.getText())+"','"+stavField.getValue().toString()+"','"+prehliadkaField.getValue().toString()+"')";
+        String sql="INSERT INTO `vodici` (evc_vodica,name,surname,evc_vehicle,stav,prehliadka ) VALUES ('"+Integer.parseInt(evcField.getText())+"','"+nameField.getText()+"','"+surnameField.getText()+"','"+Integer.parseInt(evcVehicleField.getValue().toString())+"','"+stavField.getValue().toString()+"','"+prehliadkaField.getValue().toString()+"')";
         Statement statement=connection.createStatement();
         statement.executeUpdate(sql);
         closeStage();
@@ -47,6 +48,26 @@ public class AddController {
         ObservableList<String> options =
                 FXCollections.observableArrayList("Pracuje","Dovolenka","PN");
         stavField.setItems(options);
+
+    }
+
+    public void obsahComboBoxEvc() throws SQLException {
+        ConnectionClass connectionClass = new ConnectionClass();
+        Connection connection=connectionClass.getConnection();
+
+        ObservableList<Integer> options = FXCollections.observableArrayList();
+
+        String sql2="SELECT evc FROM vozidla";
+        Statement statement=connection.createStatement();
+        ResultSet resultSet=statement.executeQuery(sql2);
+        int i=0;
+        while (resultSet.next()){
+
+            options.add(resultSet.getInt("evc"));
+            i++;
+        }
+        evcVehicleField.setItems(options);
+
 
     }
 

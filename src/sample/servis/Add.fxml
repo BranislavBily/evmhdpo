@@ -9,13 +9,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="324.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.servis.AddController">
+<AnchorPane prefHeight="324.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.servis.AddController">
    <children>
       <Label layoutX="128.0" layoutY="33.0" prefHeight="42.0" prefWidth="232.0" text="Pridanie záznamu do tabuľky">
          <font>
             <Font size="18.0" />
          </font></Label>
-      <TextField fx:id="evcField" layoutX="32.0" layoutY="93.0" prefHeight="26.0" prefWidth="182.0" promptText="EVČ vodiča" />
       <DatePicker fx:id="odstaveneField" layoutX="259.0" layoutY="93.0" prefHeight="26.0" prefWidth="168.0" promptText="Odstavené od" />
       <TextField fx:id="zavadaField" layoutX="32.0" layoutY="139.0" prefHeight="26.0" prefWidth="182.0" promptText="Závada" />
       <ComboBox fx:id="halaField" layoutX="259.0" layoutY="139.0" onMouseClicked="#obsahComboBox2" prefHeight="26.0" prefWidth="168.0" promptText="Potrebná hala">
@@ -31,5 +30,10 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></ComboBox>
+      <ComboBox fx:id="evcField" layoutX="32.0" layoutY="93.0" onMouseClicked="#obsahComboBoxEvc" prefHeight="26.0" prefWidth="182.0" promptText="--EVČ Vozidla---">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ComboBox>
    </children>
 </AnchorPane>

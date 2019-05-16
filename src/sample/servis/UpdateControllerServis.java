@@ -29,7 +29,7 @@ import java.util.ResourceBundle;
 public class UpdateControllerServis implements Initializable {
 
 
-    public TextField evcField;
+    public ComboBox evcField;
     public DatePicker odstaveneField;
     public TextField zavadaField;
     public ComboBox halaField;
@@ -64,12 +64,32 @@ public class UpdateControllerServis implements Initializable {
         stavField.setItems(options);
 
     }
+
+    public void obsahComboBoxEvc() throws SQLException {
+        ConnectionClass connectionClass = new ConnectionClass();
+        Connection connection=connectionClass.getConnection();
+
+        ObservableList<Integer> options = FXCollections.observableArrayList();
+
+        String sql2="SELECT evc FROM vozidla";
+        Statement statement=connection.createStatement();
+        ResultSet resultSet=statement.executeQuery(sql2);
+        int i=0;
+        while (resultSet.next()){
+
+            options.add(resultSet.getInt("evc"));
+            i++;
+        }
+        evcField.setItems(options);
+
+
+    }
     public void insert() throws SQLException {
         ConnectionClass connectionClass = new ConnectionClass();
         Connection connection=connectionClass.getConnection();
 
 
-        String sql="UPDATE `servis` SET `evc_vehicle`='"+Integer.parseInt(evcField.getText())+"',`odstavene`='"+odstaveneField.getValue().toString()+"',`zavada`='"+zavadaField.getText()+"',`hala`='"+halaField.getValue().toString()+"',`stav`='"+stavField.getValue().toString()+"',`oprava`='"+odovzdanieField.getValue().toString()+"' WHERE `id`='"+fID+"'";
+        String sql="UPDATE `servis` SET `evc_vehicle`='"+Integer.parseInt(evcField.getValue().toString())+"',`odstavene`='"+odstaveneField.getValue().toString()+"',`zavada`='"+zavadaField.getText()+"',`hala`='"+halaField.getValue().toString()+"',`stav`='"+stavField.getValue().toString()+"',`oprava`='"+odovzdanieField.getValue().toString()+"' WHERE `id`='"+fID+"'";
 
         Statement statement=connection.createStatement();
         statement.executeUpdate(sql);
@@ -97,7 +117,7 @@ public class UpdateControllerServis implements Initializable {
 
         while (resultSet.next()){
 
-            evcField.setText(String.valueOf(resultSet.getInt("evc_vehicle")));
+            evcField.setValue(String.valueOf(resultSet.getInt("evc_vehicle")));
             odstaveneField.setValue(LocalDate.parse((resultSet.getDate("odstavene")).toString()));
             zavadaField.setText(resultSet.getString("zavada"));
             halaField.setValue(resultSet.getString("hala"));

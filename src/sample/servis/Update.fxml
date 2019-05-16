@@ -15,7 +15,6 @@
          <font>
             <Font size="18.0" />
          </font></Label>
-      <TextField fx:id="evcField" layoutX="55.0" layoutY="88.0" promptText="EVČ vodiča" />
       <DatePicker fx:id="odstaveneField" layoutX="258.0" layoutY="88.0" prefHeight="26.0" prefWidth="174.0" promptText="Odstavené od" />
       <TextField fx:id="zavadaField" layoutX="55.0" layoutY="134.0" promptText="Závada" />
       <ComboBox fx:id="halaField" layoutX="258.0" layoutY="134.0" onMouseClicked="#obsahComboBox2" prefHeight="26.0" prefWidth="174.0" promptText="Potrebná hala">
@@ -31,5 +30,10 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></ComboBox>
+      <ComboBox fx:id="evcField" layoutX="57.0" layoutY="88.0" onMouseClicked="#obsahComboBoxEvc" prefHeight="26.0" prefWidth="149.0" promptText="--EVČ Vodiča---">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ComboBox>
    </children>
 </AnchorPane>

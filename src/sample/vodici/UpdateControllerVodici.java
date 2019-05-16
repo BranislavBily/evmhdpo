@@ -31,7 +31,7 @@ public class UpdateControllerVodici implements Initializable {
     public TextField nameField;
     public TextField surnameField;
     public DatePicker prehliadkaField;
-    public TextField evcVehicleField;
+    public ComboBox evcVehicleField;
     public ComboBox stavField;
     private Stage stage;
 
@@ -61,12 +61,33 @@ public class UpdateControllerVodici implements Initializable {
         stavField.setItems(options);
 
     }
+
+    public void obsahComboBoxEvc() throws SQLException {
+        ConnectionClass connectionClass = new ConnectionClass();
+        Connection connection=connectionClass.getConnection();
+
+        ObservableList<Integer> options = FXCollections.observableArrayList();
+
+        String sql2="SELECT evc FROM vozidla";
+        Statement statement=connection.createStatement();
+        ResultSet resultSet=statement.executeQuery(sql2);
+        int i=0;
+        while (resultSet.next()){
+
+            options.add(resultSet.getInt("evc"));
+            i++;
+        }
+        evcVehicleField.setItems(options);
+
+
+    }
+
     public void insert() throws SQLException {
         ConnectionClass connectionClass = new ConnectionClass();
         Connection connection=connectionClass.getConnection();
 
 
-        String sql="UPDATE `vodici` SET `evc_vodica`='"+Integer.parseInt(evcField.getText())+"',`name`='"+nameField.getText()+"',`surname`='"+surnameField.getText()+"',`prehliadka`='"+prehliadkaField.getValue()+"',`evc_vehicle`='"+evcVehicleField.getText()+"',`stav`='"+stavField.getValue().toString()+"' WHERE `id`='"+fID+"'";
+        String sql="UPDATE `vodici` SET `evc_vodica`='"+Integer.parseInt(evcField.getText())+"',`name`='"+nameField.getText()+"',`surname`='"+surnameField.getText()+"',`prehliadka`='"+prehliadkaField.getValue()+"',`evc_vehicle`='"+evcVehicleField.getValue().toString()+"',`stav`='"+stavField.getValue().toString()+"' WHERE `id`='"+fID+"'";
 
         Statement statement=connection.createStatement();
         statement.executeUpdate(sql);
@@ -90,7 +111,7 @@ public class UpdateControllerVodici implements Initializable {
             nameField.setText(resultSet.getString("name"));
             surnameField.setText(resultSet.getString("surname"));
             prehliadkaField.setValue(LocalDate.parse((resultSet.getDate("prehliadka")).toString()));
-            evcVehicleField.setText(String.valueOf(resultSet.getInt("evc_vehicle")));
+            evcVehicleField.setValue(String.valueOf(resultSet.getInt("evc_vehicle")));
             stavField.setValue(resultSet.getString("stav"));
         }
 

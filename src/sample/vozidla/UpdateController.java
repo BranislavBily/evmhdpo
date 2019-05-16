@@ -30,7 +30,7 @@ public class UpdateController implements Initializable {
 
     public TextField evcField;
     public TextField spzField;
-    public TextField vodicField;
+    public ComboBox vodicField;
     public DatePicker stkField;
     public ComboBox typField;
     public ComboBox stavField;
@@ -72,12 +72,33 @@ public class UpdateController implements Initializable {
         typField.setItems(options);
 
     }
+
+    public void obsahComboBoxVodic() throws SQLException {
+        ConnectionClass connectionClass = new ConnectionClass();
+        Connection connection=connectionClass.getConnection();
+
+        ObservableList<String> options = FXCollections.observableArrayList();
+
+        String sql2="SELECT CONCAT(name, \" \", surname)AS name FROM vodici";
+        Statement statement=connection.createStatement();
+        ResultSet resultSet=statement.executeQuery(sql2);
+        int i=0;
+        while (resultSet.next()){
+
+            options.add(resultSet.getString("name"));
+            i++;
+        }
+        vodicField.setItems(options);
+
+
+    }
+
     public void insert() throws SQLException {
         ConnectionClass connectionClass = new ConnectionClass();
         Connection connection=connectionClass.getConnection();
 
 
-        String sql="UPDATE `vozidla` SET `evc`='"+Integer.parseInt(evcField.getText())+"',`spz`='"+spzField.getText()+"',`vodic`='"+vodicField.getText()+"',`stk`='"+stkField.getValue().toString()+"',`typVozidla`='"+typField.getValue().toString()+"',`stavVozidla`='"+stavField.getValue().toString()+"',`reklama`='"+reklamaField.getText()+"' WHERE `id`='"+fID+"'";
+        String sql="UPDATE `vozidla` SET `evc`='"+Integer.parseInt(evcField.getText())+"',`spz`='"+spzField.getText()+"',`vodic`='"+vodicField.getValue().toString()+"',`stk`='"+stkField.getValue().toString()+"',`typVozidla`='"+typField.getValue().toString()+"',`stavVozidla`='"+stavField.getValue().toString()+"',`reklama`='"+reklamaField.getText()+"' WHERE `id`='"+fID+"'";
 
         Statement statement=connection.createStatement();
         statement.executeUpdate(sql);
@@ -101,7 +122,7 @@ public class UpdateController implements Initializable {
 
             evcField.setText(String.valueOf(resultSet.getInt("evc")));
             spzField.setText(resultSet.getString("spz"));
-            vodicField.setText(resultSet.getString("vodic"));
+            vodicField.setValue(resultSet.getString("vodic"));
             stkField.setValue(LocalDate.parse((resultSet.getDate("stk")).toString()));
             typField.setValue(resultSet.getString("typVozidla"));
             stavField.setValue(resultSet.getString("stavVozidla"));

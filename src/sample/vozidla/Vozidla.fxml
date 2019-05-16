@@ -112,13 +112,6 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button layoutX="1475.0" layoutY="792.0" mnemonicParsing="false" onAction="#vozidlaClick" prefHeight="46.0" prefWidth="172.0" style="-fx-background-color: #c6002f;" text="Refresh" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
 
    </children>
 </AnchorPane>

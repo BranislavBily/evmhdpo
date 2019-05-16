@@ -32,5 +32,10 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ComboBox>
+      <Label fx:id="invalidAlert" layoutX="150.0" layoutY="218.0" prefHeight="27.0" prefWidth="187.0" textFill="#e21b1b">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

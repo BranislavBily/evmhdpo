@@ -10,10 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import sample.Main;
 import sample.vodici.VodiciController;
@@ -31,6 +28,14 @@ public class AddController {
     public ComboBox typField;
     public ComboBox stavField;
     public TextField reklamaField;
+    public Label invalidAlert;
+    public Label invalidEVC;
+    public Label invalidSPZ;
+    public Label invalidSTK;
+    public Label invalidStav;
+    public Label invalidReklama;
+    public Label invalidTyp;
+    public Label invalidVodic;
 
     @FXML
     public Button pridatButton;
@@ -40,11 +45,38 @@ public class AddController {
     public void insert() throws SQLException {
         ConnectionClass connectionClass = new ConnectionClass();
         Connection connection=connectionClass.getConnection();
-
+        try{
         String sql="INSERT INTO vozidla (evc, spz, vodic,stk, typVozidla, stavVozidla, reklama ) VALUES ('"+Integer.parseInt(evcField.getText())+"','"+spzField.getText()+"','"+vodicField.getValue().toString()+"','"+stkField.getValue()+"','"+typField.getValue().toString()+"','"+stavField.getValue().toString()+"','"+reklamaField.getText()+"')";
         Statement statement=connection.createStatement();
         statement.executeUpdate(sql);
-        closeStage();
+        closeStage();}
+        catch(Exception e){
+            invalidAlert.setText("Vyplňte všetky polia správne !");
+            invalidEVC.setText("");
+            invalidSPZ.setText("");
+            invalidSTK.setText("");
+            invalidStav.setText("");
+            invalidTyp.setText("");
+            invalidVodic.setText("");
+            validation();
+        }
+
+
+    }
+    public void validation(){
+        if(!evcField.getText().matches(".*\\d.*"))
+            invalidEVC.setText("!");
+        if(spzField.getText().contains(""))
+            invalidSPZ.setText("!");
+        if(vodicField.getValue() == null)
+            invalidVodic.setText("!");
+        if(stavField.getValue() == null)
+            invalidStav.setText("!");
+        if(stkField.getValue()== null)
+            invalidSTK.setText("!");
+        if(typField.getValue() == null)
+            invalidTyp.setText("!");
+
 
 
     }

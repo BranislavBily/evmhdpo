@@ -31,6 +31,11 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getRetazec(String meno,String password){
+        String retazec = meno+" "+password;
+        return retazec;
+    }
 }
 
 

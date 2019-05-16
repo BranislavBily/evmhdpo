@@ -7,6 +7,8 @@ import static org.junit.Assert.*;
 public class UserTest {
 
 
+
+
     @Test
     public void canSetDataintoObjectUser(){
         User user = new User();
@@ -24,6 +26,15 @@ public class UserTest {
 
 
     }
+
+    @Test
+    public void canGetRetazec(){
+        User user = new User();
+        String retazec="Michal Heslo";
+        assertEquals(user.getRetazec("Michal","Heslo"),retazec);
+
+    }
+
 
 
 

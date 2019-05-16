@@ -346,7 +346,7 @@ public class VozidlaController extends User implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         callDatabase();
         userLabel.setText(LoginController.user.getMeno());
-        System.out.println("meno je : "+VozidlaController.super.getMeno());
+        
 
 
 

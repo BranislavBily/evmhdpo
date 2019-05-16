@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import sample.vozidla.VozidlaController;
@@ -34,6 +35,13 @@ public class UpdateControllerVodici implements Initializable {
     public ComboBox evcVehicleField;
     public ComboBox stavField;
     private Stage stage;
+    public Label invalidAlert;
+    public Label invalidEVCVozidla;
+    public Label invalidEVCVodica;
+    public Label invalidMeno;
+    public Label invalidStav;
+    public Label invalidPrehliadka;
+    public Label invalidPriezvisko;
 
 
 
@@ -86,13 +94,50 @@ public class UpdateControllerVodici implements Initializable {
         ConnectionClass connectionClass = new ConnectionClass();
         Connection connection=connectionClass.getConnection();
 
-
+        try{
         String sql="UPDATE `vodici` SET `evc_vodica`='"+Integer.parseInt(evcField.getText())+"',`name`='"+nameField.getText()+"',`surname`='"+surnameField.getText()+"',`prehliadka`='"+prehliadkaField.getValue()+"',`evc_vehicle`='"+evcVehicleField.getValue().toString()+"',`stav`='"+stavField.getValue().toString()+"' WHERE `id`='"+fID+"'";
 
         Statement statement=connection.createStatement();
         statement.executeUpdate(sql);
         stage.close();
+        invalidAlert.setText("Vyplňte všetky polia správne !");
+        invalidEVCVodica.setText("");
+        invalidEVCVozidla.setText("");
+        invalidStav.setText("");
+        invalidPrehliadka.setText("");
+        invalidMeno.setText("");
+        invalidPriezvisko.setText("");
+        validation();
+    }
+        catch(Exception e){
+        invalidAlert.setText("Vyplňte všetky polia správne !");
+        invalidEVCVodica.setText("");
+        invalidEVCVozidla.setText("");
+        invalidStav.setText("");
+        invalidPrehliadka.setText("");
+        invalidMeno.setText("");
+        invalidPriezvisko.setText("");
+        validation();
+    }
 
+
+
+
+    }
+
+    public void validation(){
+        if(!evcField.getText().matches(".*\\d.*"))
+            invalidEVCVodica.setText("!");
+        if(nameField.getText().isEmpty())
+            invalidMeno.setText("!");
+        if(prehliadkaField.getValue() == null)
+            invalidPrehliadka.setText("!");
+        if(stavField.getValue() == null)
+            invalidStav.setText("!");
+        if(surnameField.getText().isEmpty())
+            invalidPriezvisko.setText("!");
+        if(evcVehicleField.getValue() == null)
+            invalidEVCVozidla.setText("!");
 
     }
 

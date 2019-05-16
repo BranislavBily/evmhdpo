@@ -27,6 +27,12 @@ public class AddController {
     public ComboBox evcVehicleField;
     public ComboBox stavField;
     public Label invalidAlert;
+    public Label invalidEVCVozidla;
+    public Label invalidEVCVodica;
+    public Label invalidMeno;
+    public Label invalidStav;
+    public Label invalidPrehliadka;
+    public Label invalidPriezvisko;
 
 
     public void insert() throws SQLException {
@@ -37,9 +43,24 @@ public class AddController {
             Statement statement = connection.createStatement();
             statement.executeUpdate(sql);
             closeStage();
+            invalidAlert.setText("Vyplňte všetky polia správne !");
+            invalidEVCVodica.setText("");
+            invalidEVCVozidla.setText("");
+            invalidStav.setText("");
+            invalidPrehliadka.setText("");
+            invalidMeno.setText("");
+            invalidPriezvisko.setText("");
+            validation();
         }
         catch(Exception e){
             invalidAlert.setText("Vyplňte všetky polia správne !");
+            invalidEVCVodica.setText("");
+            invalidEVCVozidla.setText("");
+            invalidStav.setText("");
+            invalidPrehliadka.setText("");
+            invalidMeno.setText("");
+            invalidPriezvisko.setText("");
+            validation();
         }
 
 
@@ -50,6 +71,22 @@ public class AddController {
         ObservableList<String> options =
                 FXCollections.observableArrayList("Pracuje","Dovolenka","PN");
         stavField.setItems(options);
+
+    }
+
+    public void validation(){
+        if(!evcField.getText().matches(".*\\d.*"))
+            invalidEVCVodica.setText("!");
+        if(nameField.getText().isEmpty())
+            invalidMeno.setText("!");
+        if(prehliadkaField.getValue() == null)
+            invalidPrehliadka.setText("!");
+        if(stavField.getValue() == null)
+            invalidStav.setText("!");
+        if(surnameField.getText().isEmpty())
+            invalidPriezvisko.setText("!");
+        if(evcVehicleField.getValue() == null)
+            invalidEVCVozidla.setText("!");
 
     }
 

@@ -37,5 +37,40 @@
             <Font name="System Italic" size="14.0" />
          </font>
       </Label>
+      <Label fx:id="invalidAlert1" layoutX="239.0" layoutY="218.0" prefHeight="27.0" prefWidth="187.0" textFill="#e21b1b">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="invalidEVCVodica" layoutX="17.0" layoutY="93.0" prefHeight="20.0" prefWidth="18.0" textFill="#d72929">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="invalidPriezvisko" layoutX="17.0" layoutY="139.0" prefHeight="20.0" prefWidth="18.0" textFill="#d72929">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="invalidEVCVozidla" layoutX="17.0" layoutY="181.0" prefHeight="20.0" prefWidth="18.0" textFill="#d72929">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="invalidMeno" layoutX="458.0" layoutY="93.0" prefHeight="20.0" prefWidth="18.0" textFill="#d72929">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="invalidPrehliadka" layoutX="458.0" layoutY="139.0" prefHeight="20.0" prefWidth="18.0" textFill="#d72929">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="invalidStav" layoutX="458.0" layoutY="181.0" prefHeight="20.0" prefWidth="18.0" textFill="#d72929">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

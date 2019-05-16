@@ -123,7 +123,7 @@ public class UpdateController  extends VozidlaController implements Initializabl
     public void validation(){
         if(!evcField.getText().matches(".*\\d.*"))
             invalidEVC.setText("!");
-        if(spzField.getText().trim().contains(""))
+        if(spzField.getText().trim().isEmpty())
             invalidSPZ.setText("!");
         if(vodicField.getValue() == null)
             invalidVodic.setText("!");

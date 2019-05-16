@@ -66,7 +66,7 @@ public class AddController {
     public void validation(){
         if(!evcField.getText().matches(".*\\d.*"))
             invalidEVC.setText("!");
-        if(spzField.getText().contains(""))
+        if(spzField.getText().isEmpty())
             invalidSPZ.setText("!");
         if(vodicField.getValue() == null)
             invalidVodic.setText("!");

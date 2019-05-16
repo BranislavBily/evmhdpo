@@ -32,5 +32,40 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ComboBox>
+      <Label fx:id="invalidAlert" layoutX="150.0" layoutY="210.0" prefHeight="27.0" prefWidth="187.0" textFill="#e21b1b">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="invalidEVCVodica" layoutX="14.0" layoutY="92.0" prefHeight="20.0" prefWidth="18.0" textFill="#d72929">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="invalidPriezvisko" layoutX="14.0" layoutY="138.0" prefHeight="20.0" prefWidth="18.0" textFill="#d72929">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="invalidEVCVozidla" layoutX="14.0" layoutY="180.0" prefHeight="20.0" prefWidth="18.0" textFill="#d72929">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="invalidMeno" layoutX="455.0" layoutY="92.0" prefHeight="20.0" prefWidth="18.0" textFill="#d72929">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="invalidPrehliadka" layoutX="455.0" layoutY="138.0" prefHeight="20.0" prefWidth="18.0" textFill="#d72929">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="invalidStav" layoutX="455.0" layoutY="180.0" prefHeight="20.0" prefWidth="18.0" textFill="#d72929">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

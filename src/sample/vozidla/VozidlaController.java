@@ -30,14 +30,8 @@ import java.util.ResourceBundle;
 
 public class VozidlaController extends User implements Initializable {
 
-
-
-
-
-
     /*Vozidla Controller*/
 
-    private String meno;
     public TableView<TableModel> tableView;
     public TableColumn<TableModel,String> evcColumn;
     public TableColumn<TableModel,String> vodiciColumn;
@@ -56,10 +50,6 @@ public class VozidlaController extends User implements Initializable {
     Button[] update;
     int updateID;
     Stage stageUpdate;
-    int updateIdecko;
-
-
-
 
     @FXML
     private javafx.scene.control.Label VozidlaButton;
@@ -93,7 +83,6 @@ public class VozidlaController extends User implements Initializable {
             stageVozidla.setMaximized(true);
             stageVozidla.setMinHeight(1080);
             stageVozidla.setMinWidth(1920);
-            //stageVozidla.setFullScreen(true);
             stageVozidla.show();
         } catch (
                 IOException e) {
@@ -116,7 +105,6 @@ public class VozidlaController extends User implements Initializable {
             stageVodici.setMaximized(true);
             stageVodici.setMinHeight(1080);
             stageVodici.setMinWidth(1920);
-            //stageVodici.setFullScreen(true);
             stageVodici.show();
         } catch (
                 IOException e) {
@@ -136,7 +124,7 @@ public class VozidlaController extends User implements Initializable {
 
             stageServis.setTitle("Servis");
             stageServis.setScene(scene);
-            //stageServis.setFullScreen(true);
+
             stageServis.setMaximized(true);
             stageServis.setMinHeight(1080);
             stageServis.setMinWidth(1920);

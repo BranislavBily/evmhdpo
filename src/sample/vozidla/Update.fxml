@@ -15,15 +15,15 @@
          <font>
             <Font size="18.0" />
          </font></Label>
-      <TextField fx:id="evcField" layoutX="42.0" layoutY="103.0" prefHeight="26.0" prefWidth="150.0" promptText="EVČ" />
-      <TextField fx:id="spzField" layoutX="245.0" layoutY="103.0" promptText="ŠPZ" />
-      <TextField fx:id="vodicField" layoutX="42.0" layoutY="149.0" prefHeight="26.0" prefWidth="150.0" promptText="Vodič" />
-      <DatePicker fx:id="stkField" layoutX="245.0" layoutY="149.0" prefHeight="26.0" prefWidth="178.0" promptText="STK do" />
-      <ComboBox fx:id="stavField" layoutX="245.0" layoutY="190.0" onMouseClicked="#obsahComboBox" prefHeight="26.0" prefWidth="187.0" promptText="--Stav Vozidla---">
+      <TextField fx:id="evcField" layoutX="42.0" layoutY="103.0" prefHeight="26.0" prefWidth="187.0" promptText="EVČ" />
+      <TextField fx:id="spzField" layoutX="261.0" layoutY="105.0" promptText="ŠPZ" />
+      <TextField fx:id="vodicField" layoutX="42.0" layoutY="149.0" prefHeight="26.0" prefWidth="187.0" promptText="Vodič" />
+      <DatePicker fx:id="stkField" layoutX="261.0" layoutY="151.0" prefHeight="26.0" prefWidth="187.0" promptText="STK do" />
+      <ComboBox fx:id="stavField" layoutX="261.0" layoutY="192.0" onMouseClicked="#obsahComboBox" prefHeight="26.0" prefWidth="187.0" promptText="--Stav Vozidla---">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></ComboBox>
-      <TextField fx:id="reklamaField" layoutX="42.0" layoutY="232.0" prefHeight="26.0" prefWidth="150.0" promptText="Reklama" />
+      <TextField fx:id="reklamaField" layoutX="42.0" layoutY="232.0" prefHeight="26.0" prefWidth="187.0" promptText="Reklama" />
       <Button layoutX="169.0" layoutY="283.0" mnemonicParsing="false" onAction="#insert" prefHeight="26.0" prefWidth="149.0" style="-fx-background-color: #c6002f;" text="Zmeniť" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />

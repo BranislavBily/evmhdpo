@@ -5,10 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import sample.vodici.VodiciController;
@@ -37,6 +34,13 @@ public class UpdateControllerServis implements Initializable {
     public Button pridatButton;
     public ComboBox stavField;
     private Stage stage;
+    public Label invalidAlert;
+    public Label invalidEVC;
+    public Label invalidZavada;
+    public Label invalidOd;
+    public Label invalidDo;
+    public Label invalidStav;
+    public Label invalidHala;
 
 
 
@@ -88,12 +92,50 @@ public class UpdateControllerServis implements Initializable {
         ConnectionClass connectionClass = new ConnectionClass();
         Connection connection=connectionClass.getConnection();
 
-
+        try{
         String sql="UPDATE `servis` SET `evc_vehicle`='"+Integer.parseInt(evcField.getValue().toString())+"',`odstavene`='"+odstaveneField.getValue().toString()+"',`zavada`='"+zavadaField.getText()+"',`hala`='"+halaField.getValue().toString()+"',`stav`='"+stavField.getValue().toString()+"',`oprava`='"+odovzdanieField.getValue().toString()+"' WHERE `id`='"+fID+"'";
 
         Statement statement=connection.createStatement();
         statement.executeUpdate(sql);
         stage.close();
+        invalidAlert.setText("Vyplňte všetky polia správne !");
+        invalidEVC.setText("");
+        invalidStav.setText("");
+        invalidDo.setText("");
+        invalidHala.setText("");
+        invalidOd.setText("");
+        invalidZavada.setText("");
+        validation();
+    }
+        catch(Exception e){
+        invalidAlert.setText("Vyplňte všetky polia správne !");
+        invalidEVC.setText("");
+        invalidStav.setText("");
+        invalidDo.setText("");
+        invalidHala.setText("");
+        invalidOd.setText("");
+        invalidZavada.setText("");
+        validation();
+    }
+
+
+
+}
+
+    public void validation(){
+        if(evcField.getValue() == null)
+            invalidEVC.setText("!");
+        if(zavadaField.getText().isEmpty())
+            invalidZavada.setText("!");
+        if(halaField.getValue() == null)
+            invalidHala.setText("!");
+        if(stavField.getValue() == null)
+            invalidStav.setText("!");
+        if(odovzdanieField.getValue()== null)
+            invalidDo.setText("!");
+        if(odstaveneField.getValue() == null)
+            invalidOd.setText("!");
+
 
 
     }

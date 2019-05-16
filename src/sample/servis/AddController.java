@@ -26,6 +26,12 @@ public class AddController {
     public Button pridatButton;
     public ComboBox stavField;
     public Label invalidAlert;
+    public Label invalidEVC;
+    public Label invalidZavada;
+    public Label invalidOd;
+    public Label invalidDo;
+    public Label invalidStav;
+    public Label invalidHala;
 
     @FXML
     
@@ -40,18 +46,51 @@ public class AddController {
             Statement statement = connection.createStatement();
             statement.executeUpdate(sql);
             closeStage();
+            invalidAlert.setText("Vyplňte všetky polia správne !");
+            invalidEVC.setText("");
+            invalidStav.setText("");
+            invalidDo.setText("");
+            invalidHala.setText("");
+            invalidOd.setText("");
+            invalidZavada.setText("");
+            validation();
         }
         catch(Exception e){
             invalidAlert.setText("Vyplňte všetky polia správne !");
+            invalidEVC.setText("");
+            invalidStav.setText("");
+            invalidDo.setText("");
+            invalidHala.setText("");
+            invalidOd.setText("");
+            invalidZavada.setText("");
+            validation();
         }
+
 
 
     }
 
+    public void validation(){
+        if(evcField.getValue() == null)
+            invalidEVC.setText("!");
+        if(zavadaField.getText().isEmpty())
+            invalidZavada.setText("!");
+        if(halaField.getValue() == null)
+            invalidHala.setText("!");
+        if(stavField.getValue() == null)
+            invalidStav.setText("!");
+        if(odovzdanieField.getValue()== null)
+            invalidDo.setText("!");
+        if(odstaveneField.getValue() == null)
+            invalidOd.setText("!");
+
+
+
+    }
     @FXML
     public void obsahComboBox(){
         ObservableList<String> options =
-                FXCollections.observableArrayList("Čaká sa","Opravné","Opravuje sa");
+                FXCollections.observableArrayList("Čaká sa ","Opravené","Opravuje sa");
         stavField.setItems(options);
 
     }

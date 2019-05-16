@@ -40,5 +40,40 @@
             <Font name="System Italic" size="14.0" />
          </font>
       </Label>
+      <Label fx:id="invalidAlert1" layoutX="150.0" layoutY="216.0" prefHeight="27.0" prefWidth="187.0" textFill="#e21b1b">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="invalidEVC" layoutX="7.0" layoutY="93.0" prefHeight="20.0" prefWidth="18.0" textFill="#d72929">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="invalidZavada" layoutX="7.0" layoutY="139.0" prefHeight="20.0" prefWidth="18.0" textFill="#d72929">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="invalidDo" layoutX="7.0" layoutY="181.0" prefHeight="20.0" prefWidth="18.0" textFill="#d72929">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="invalidOd" layoutX="448.0" layoutY="93.0" prefHeight="20.0" prefWidth="18.0" textFill="#d72929">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="invalidHala" layoutX="448.0" layoutY="139.0" prefHeight="20.0" prefWidth="18.0" textFill="#d72929">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="invalidStav" layoutX="448.0" layoutY="181.0" prefHeight="20.0" prefWidth="18.0" textFill="#d72929">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -5,7 +5,10 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
+
+import static com.sun.org.apache.xalan.internal.utils.SecuritySupport.getResourceAsStream;
 
 public class Main extends Application {
     Stage primaryStage;
@@ -24,6 +27,7 @@ public class Main extends Application {
         //primaryStage.setFullScreen(true);
         Application.setUserAgentStylesheet(Application.STYLESHEET_MODENA);
         StyleManager.getInstance().addUserAgentStylesheet(getClass().getResource("style.css").toString());
+
         primaryStage.show();
     }
 

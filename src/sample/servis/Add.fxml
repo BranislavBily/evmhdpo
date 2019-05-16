@@ -11,7 +11,7 @@
 
 <AnchorPane prefHeight="324.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.servis.AddController">
    <children>
-      <Label layoutX="128.0" layoutY="33.0" prefHeight="42.0" prefWidth="232.0" text="Pridanie záznamu do tabuľky">
+      <Label layoutX="117.0" layoutY="33.0" prefHeight="42.0" prefWidth="254.0" text="Pridanie vozidla na servisovanie">
          <font>
             <Font size="18.0" />
          </font></Label>

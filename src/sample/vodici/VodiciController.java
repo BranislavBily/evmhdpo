@@ -255,7 +255,7 @@ public class VodiciController extends User implements Initializable {
 
 
                 updateController.updateStage(stageUpdate);
-                stageUpdate.setTitle("Zmena údajov pri vodičovi");
+                stageUpdate.setTitle("Zmena údajov o vodičovi");
                 stageUpdate.setScene(scene);
                 stageUpdate.setMinHeight(420);
                 stageUpdate.setMinWidth(520);

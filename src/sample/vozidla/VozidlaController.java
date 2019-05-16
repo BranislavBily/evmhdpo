@@ -269,7 +269,7 @@ public class VozidlaController extends User implements Initializable {
 
 
                 updateController.updateStage(stageUpdate);
-                stageUpdate.setTitle("Zmena údajov pri vozidle");
+                stageUpdate.setTitle("Zmena údajov o vozidle");
                 stageUpdate.setScene(scene);
                 stageUpdate.setMinHeight(400);
                 stageUpdate.setMinWidth(520);

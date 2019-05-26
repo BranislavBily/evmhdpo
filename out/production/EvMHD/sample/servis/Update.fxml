@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="324.0" prefWidth="488.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.servis.UpdateControllerServis">
+   <children>
+      <Label layoutX="108.0" layoutY="34.0" prefHeight="42.0" prefWidth="267.0" text="Zmena údajov o vozidle v servise">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <DatePicker fx:id="odstaveneField" layoutX="258.0" layoutY="88.0" prefHeight="26.0" prefWidth="174.0" promptText="Odstavené od" />
+      <TextField fx:id="zavadaField" layoutX="55.0" layoutY="134.0" promptText="Závada" />
+      <ComboBox fx:id="halaField" layoutX="258.0" layoutY="134.0" onMouseClicked="#obsahComboBox2" prefHeight="26.0" prefWidth="174.0" promptText="Potrebná hala">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ComboBox>
+      <DatePicker fx:id="odovzdanieField" layoutX="55.0" layoutY="177.0" prefHeight="26.0" prefWidth="187.0" promptText="Termín odovzdania" />
+      <Button fx:id="pridatButton" layoutX="163.0" layoutY="240.0" mnemonicParsing="false" onAction="#insert" prefHeight="26.0" prefWidth="161.0" style="-fx-background-color: #c6002f;" text="Zmeniť" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <ComboBox fx:id="stavField" layoutX="257.0" layoutY="176.0" onMouseClicked="#obsahComboBox" prefHeight="26.0" prefWidth="174.0" promptText="--Stav Opravy---">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ComboBox>
+      <ComboBox fx:id="evcField" layoutX="57.0" layoutY="88.0" onMouseClicked="#obsahComboBoxEvc" prefHeight="26.0" prefWidth="149.0" promptText="--EVČ Vodiča---">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ComboBox>
+      <Label fx:id="invalidAlert" layoutX="157.0" layoutY="211.0" prefHeight="27.0" prefWidth="187.0" textFill="#e21b1b">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="invalidEVC" layoutX="14.0" layoutY="88.0" prefHeight="20.0" prefWidth="18.0" textFill="#d72929">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="invalidZavada" layoutX="14.0" layoutY="134.0" prefHeight="20.0" prefWidth="18.0" textFill="#d72929">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="invalidDo" layoutX="14.0" layoutY="176.0" prefHeight="20.0" prefWidth="18.0" textFill="#d72929">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="invalidOd" layoutX="455.0" layoutY="88.0" prefHeight="20.0" prefWidth="18.0" textFill="#d72929">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="invalidHala" layoutX="455.0" layoutY="134.0" prefHeight="20.0" prefWidth="18.0" textFill="#d72929">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="invalidStav" layoutX="455.0" layoutY="176.0" prefHeight="20.0" prefWidth="18.0" textFill="#d72929">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

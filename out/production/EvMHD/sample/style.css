@@ -1,0 +1,68 @@
+*{
+    -fx-font-family: Roboto;
+}
+
+#pane {
+    -fx-background-image: url("/sample/images/background.jpg");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 100% 100%;
+    -fx-background-position: center center;
+    -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);
+}
+
+#prihlasenie {
+    -fx-background-color: white;
+}
+
+#vozidlaFXML {
+    -fx-background-color: white;
+}
+
+#LoginButton {
+    -fx-background-color: #c6002f;
+    -fx-font-size: 18px;
+    -fx-color: grey;
+}
+#Checkbox{
+    -fx-font-size: 18px;
+
+}
+#LoginButton:hover, #Checkbox:hover {
+    -fx-font-size: 18px;
+    -fx-cursor: hand;
+
+}
+#LoginButton:hover{
+    -fx-color: white;
+}
+.table-view .column-header{
+    -fx-background-color: #c6002f ;
+
+}
+.table-view .column-header .label{
+    -fx-text-fill: white;
+    -fx-background-color: #c6002f ;
+}
+.table-view .column-header-background, .table-view .column-header-background .filler{
+    -fx-background-color: #c6002f ;
+}
+.table-view .table-column {
+    -fx-alignment: CENTER;
+    -fx-pref-width:159px;
+}
+
+#tableViewUpdate{
+    -fx-text-fill: white;
+    -fx-background-color: #c6002f ;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+#tableViewDelete{
+    -fx-text-fill: white;
+    -fx-background-color: #c6002f ;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+.table-view{
+
+}

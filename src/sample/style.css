@@ -66,3 +66,12 @@
 .table-view{
 
 }
+
+.hyperlink {
+    -fx-underline: #c6002f;
+    -fx-text-fill: #c6002f;
+}
+
+.hyperlink:hover {
+    -fx-text-fill: #c6002f;
+}

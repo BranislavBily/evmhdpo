@@ -55,103 +55,102 @@ public class LoginController implements Initializable {
                 textField.setText(oldVal);
             }
         });
-        passField.textProperty().addListener((observable, oldVal, newVal) ->{
-            if(newVal.length() > 16){
+        passField.textProperty().addListener((observable, oldVal, newVal) -> {
+            if (newVal.length() > 16) {
                 passField.setText(oldVal);
             }
         });
 
         preferences = Preferences.userNodeForPackage(LoginController.class);
 
-        if(preferences!=null){
-            if(preferences.get("textField",null) !=null && !preferences.get("textField",null).isEmpty()){
-                textField.setText(preferences.get("textField",null));
-                passField.setText(preferences.get("passField",null));
-                checkBox.setSelected(preferences.getBoolean("checkBox",false));
+        if (preferences != null) {
+            if (preferences.get("textField", null) != null && !preferences.get("textField", null).isEmpty()) {
+                textField.setText(preferences.get("textField", null));
+                passField.setText(preferences.get("passField", null));
+                checkBox.setSelected(preferences.getBoolean("checkBox", false));
             }
         }
 
 
-
-
     }
 
 
-
-
-  @FXML
+    @FXML
     private void login() throws SQLException {
-      ConnectionClass connectionClass = new ConnectionClass();
-      Connection connection = connectionClass.getConnection();
-      Statement statement = connection.createStatement();
+        ConnectionClass connectionClass = new ConnectionClass();
+        Connection connection = connectionClass.getConnection();
+        Statement statement = connection.createStatement();
+
+        String insertName = textField.getText().toLowerCase();
+        String insertPassword = passField.getText();
+
+        String sql = "SELECT * FROM users WHERE name ='" + insertName + "' AND password='" + insertPassword + "';";
+        ResultSet results = statement.executeQuery(sql);
 
 
-      String insertName = textField.getText().toLowerCase();
-      String insertPassword = passField.getText();
+        if (!results.next()) {
+            System.out.println("Prihlásenie neúspešné");
+            alertInfo.setText("Zle zadané údaje!");
+        } else {
+            System.out.println("Prihlásenie úspešné");
 
-      String sql = "SELECT * FROM users WHERE name ='"+insertName+"' AND password='"+insertPassword+"';";
-      ResultSet results = statement.executeQuery(sql);
-
-
-      if(!results.next()){
-          System.out.println("Prihlásenie neúspešné");
-          alertInfo.setText("Zle zadané údaje!");
-      }else{
-          System.out.println("Prihlásenie úspešné");
-
-          if(checkBox.isSelected()){
-              preferences.put("textField",textField.getText());
-              preferences.put("passField",passField.getText());
-              preferences.putBoolean("checkBox",true);
+            if (checkBox.isSelected()) {
+                preferences.put("textField", textField.getText());
+                preferences.put("passField", passField.getText());
+                preferences.putBoolean("checkBox", true);
 
 
-          }else{
-              preferences.put("textField","");
-              preferences.put("passField","");
-              preferences.putBoolean("checkBox",false);
-          }
+            } else {
+                preferences.put("textField", "");
+                preferences.put("passField", "");
+                preferences.putBoolean("checkBox", false);
+            }
 
-          userID=results.getInt("id");
-          userName=results.getString("name");
-          password=results.getString("password");
-
-
-          System.out.println(userID);
-
-          user= new User();
-          user.setId(userID);
-          user.setMeno(userName);
-          user.setPassword(password);
+            userID = results.getInt("id");
+            userName = results.getString("name");
+            password = results.getString("password");
 
 
+            System.out.println(userID);
 
-          try {
-              Stage stage = (Stage) checkBox.getScene().getWindow();
-              FXMLLoader loader = new FXMLLoader(getClass().getResource("../vozidla/Vozidla.fxml"));
-              Parent root = loader.load();
-
-              Scene scene = new Scene(root);
-
+            user = new User();
+            user.setId(userID);
+            user.setMeno(userName);
+            user.setPassword(password);
 
 
+            try {
+                Stage stage = (Stage) checkBox.getScene().getWindow();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../vozidla/Vozidla.fxml"));
+                Parent root = loader.load();
 
-              stage.setTitle("Vozidlá");
-              stage.setScene(scene);
-              stage.setMaximized(true);
-              stage.setMinHeight(1080);
-              stage.setMinWidth(1920);
-              //stage.setFullScreen(true);
-              stage.show();
+                Scene scene = new Scene(root);
 
-          } catch (IOException e) {
-              e.printStackTrace();
-          }
 
-      }
+                stage.setTitle("Vozidlá");
+                stage.setScene(scene);
+                stage.setMaximized(true);
+                stage.setMinHeight(1080);
+                stage.setMinWidth(1920);
+                //stage.setFullScreen(true);
+                stage.show();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+
 
     }
 
+    @FXML
+    private void onZabudnuteHeslo() {
+        System.out.println("Zabudol heslo");
+    }
 
-  }
+
+}
 
 

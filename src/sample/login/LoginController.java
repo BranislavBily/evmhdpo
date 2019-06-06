@@ -11,6 +11,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import sample.Controller;
 import sample.User;
@@ -147,7 +148,18 @@ public class LoginController implements Initializable {
 
     @FXML
     private void onZabudnuteHeslo() {
-        System.out.println("Zabudol heslo");
+        Stage stage =  new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../resethesla/resetHesla.fxml"));
+        try {
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Add Workout");
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 

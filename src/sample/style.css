@@ -75,3 +75,7 @@
 .hyperlink:hover {
     -fx-text-fill: #c6002f;
 }
+
+.hyperlink:visited {
+    -fx-text-fill: #990024;
+}

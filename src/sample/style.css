@@ -73,9 +73,10 @@
 }
 
 .hyperlink:hover {
-    -fx-text-fill: #c6002f;
+    -fx-text-fill: #ff3300;
 }
 
 .hyperlink:visited {
     -fx-text-fill: #990024;
+    -fx-underline: #990024;
 }

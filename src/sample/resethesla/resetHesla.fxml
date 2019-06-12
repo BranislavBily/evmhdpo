@@ -8,64 +8,32 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="resetHeslaPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="362.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.resethesla.ResetHeslaController">
+<AnchorPane fx:id="resetHeslaPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="232.0" prefWidth="362.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.resethesla.ResetHeslaController">
    <children>
       <Line endX="214.20001220703125" layoutX="125.0" layoutY="74.0" startX="-100.0" stroke="#03383f" />
-      <Label fx:id="labelWorkoutAdded" layoutX="118.0" layoutY="497.0" text="Workout Added !" textFill="#107f74" visible="false">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Label fx:id="labelExerciseError" layoutX="116.0" layoutY="168.0" text="LabelExerciseError" textFill="RED" visible="false">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Label fx:id="labelRepetitionsError" layoutX="106.0" layoutY="276.0" text="LabelRepetitionsError" textFill="RED" visible="false">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Label fx:id="labelWeightError" alignment="CENTER" layoutX="116.0" layoutY="401.0" text="LabelWeightError" textAlignment="CENTER" textFill="RED" visible="false">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Label fx:id="labelWeightSmall" alignment="CENTER" layoutX="51.0" layoutY="401.0" text="Weight needs to be aleast 1kg heavy!" textAlignment="CENTER" textFill="RED" visible="false">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Label fx:id="labelAlreadyWorkout" alignment="CENTER" layoutX="46.0" layoutY="497.0" text="You already saved this workout today!" textAlignment="CENTER" textFill="RED" visible="false">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
       <Label layoutX="27.0" layoutY="21.0" style="-fx-font-family: Roboto;" text="Zresetovanie hesla">
          <font>
             <Font size="35.0" />
          </font>
       </Label>
-      <PasswordField id="PasswordLabel" fx:id="passField" layoutX="14.0" layoutY="256.0" prefHeight="59.0" prefWidth="340.0" promptText="Heslo" style="-fx-font-size: 30; -fx-border-color: white white black white; -fx-background-color: white; -fx-font-family: Roboto;" visible="false">
-         <font>
-            <Font name="Calibri" size="18.0" />
-         </font>
-      </PasswordField>
-      <PasswordField id="PasswordLabel" fx:id="passField1" layoutX="12.0" layoutY="361.0" prefHeight="59.0" prefWidth="340.0" promptText="Zopakuj heslo" style="-fx-font-size: 30; -fx-border-color: white white black white; -fx-background-color: white; -fx-font-family: Roboto;" visible="false">
-         <font>
-            <Font name="Calibri" size="18.0" />
-         </font>
-      </PasswordField>
-      <Button id="LoginButton" fx:id="overitKod" layoutX="98.0" layoutY="178.0" mnemonicParsing="false" onAction="#onOveritKod" pickOnBounds="false" prefHeight="43.0" prefWidth="166.0" scaleShape="false" style="-fx-font-family: Roboto;" text="Overiť" textFill="WHITE">
+      <PasswordField id="PasswordLabel" fx:id="passField" layoutX="14.0" layoutY="382.0" prefHeight="59.0" prefWidth="340.0" promptText="Heslo" />
+      <PasswordField id="PasswordLabel" fx:id="passField1" layoutX="11.0" layoutY="461.0" prefHeight="59.0" prefWidth="340.0" promptText="Zopakuj heslo" />
+      <Button id="LoginButton" fx:id="zaslatEmail" layoutX="98.0" layoutY="178.0" mnemonicParsing="false" onAction="#onOveritEmail" pickOnBounds="false" prefHeight="43.0" prefWidth="166.0" scaleShape="false" style="-fx-font-family: Roboto;" text="Zaslať email" textFill="WHITE">
          <font>
             <Font name="Calibri" size="18.0" />
          </font>
       </Button>
-      <Button id="LoginButton" fx:id="zmenitHeslo" layoutX="95.0" layoutY="454.0" mnemonicParsing="false" onAction="#onZmenitHeslo" pickOnBounds="false" prefHeight="43.0" prefWidth="166.0" scaleShape="false" style="-fx-font-family: Roboto;" text="Zmeniť heslo" textFill="WHITE" visible="false">
+      <Button id="LoginButton" fx:id="zmenitHeslo" layoutX="98.0" layoutY="534.0" mnemonicParsing="false" onAction="#onZmenitHeslo" pickOnBounds="false" prefHeight="43.0" prefWidth="166.0" scaleShape="false" style="-fx-font-family: Roboto;" text="Zmeniť heslo" textFill="WHITE">
          <font>
             <Font name="Calibri" size="18.0" />
          </font>
       </Button>
-      <TextField layoutX="14.0" layoutY="100.0" prefHeight="59.0" prefWidth="340.0" promptText="Overovací kód" />
+      <TextField fx:id="textFieldEmail" layoutX="14.0" layoutY="100.0" prefHeight="59.0" prefWidth="340.0" promptText="Zadajte váš email" />
+      <Button id="LoginButton" fx:id="buttonZaslatCode" layoutX="98.0" layoutY="317.0" mnemonicParsing="false" onAction="#onOveritKod" pickOnBounds="false" prefHeight="43.0" prefWidth="166.0" scaleShape="false" style="-fx-font-family: Roboto;" text="Overiť kód" textFill="WHITE">
+         <font>
+            <Font name="Calibri" size="18.0" />
+         </font>
+      </Button>
+      <TextField fx:id="textFieldCode" layoutX="14.0" layoutY="243.0" prefHeight="59.0" prefWidth="340.0" promptText="Zadajte verifikačný kód" />
    </children>
 </AnchorPane>

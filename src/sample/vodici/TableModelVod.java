@@ -13,9 +13,10 @@ public class TableModelVod {
     private Date prehliadka;
     private Button update;
     private Button delete;
+    private Button contact;
+    private String email;
 
-
-    public TableModelVod(int idVodica, String menoVodica, String priezviskoVodica, int vozidlo, String stavVodica, Date prehliadka , Button update, Button delete) {
+    public TableModelVod(int idVodica, String menoVodica, String priezviskoVodica, int vozidlo, String stavVodica, Date prehliadka , Button update, Button delete, Button contact, String email) {
         this.idVodica = idVodica;
         this.menoVodica = menoVodica;
         this.priezviskoVodica = priezviskoVodica;
@@ -24,10 +25,14 @@ public class TableModelVod {
         this.prehliadka = prehliadka;
         this.update = update;
         this.delete = delete;
+        this.contact = contact;
         this.delete.setText("Delete");
         this.update.setText("Update");
+        this.contact.setText("Contact");
         this.delete.setId("tableViewDelete");
         this.update.setId("tableViewUpdate");
+        this.contact.setId("tableViewContact");
+        this.email = email;
     }
 
 
@@ -95,6 +100,22 @@ public class TableModelVod {
 
     public void setDelete(Button delete) {
         this.delete = delete;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Button getContact() {
+        return contact;
+    }
+
+    public void setContact(Button contact) {
+        this.contact = contact;
     }
 }
 

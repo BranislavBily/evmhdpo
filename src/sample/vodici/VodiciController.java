@@ -322,12 +322,12 @@ public class VodiciController extends User implements Initializable {
             statement = connection.createStatement();
             String sqlID = "SELECT email FROM vodici;";
             ResultSet results = statement.executeQuery(sqlID);
-            ArrayList<String> ids = new ArrayList<>();
+            ArrayList<String> emails = new ArrayList<>();
             while (results.next()) {
-                ids.add(results.getString("email"));
+                emails.add(results.getString("email"));
             }
-            contact = new Button[ids.size()];
-            for (int i = 0; i < ids.size(); i++) {
+            contact = new Button[emails.size()];
+            for (int i = 0; i < emails.size(); i++) {
                 contact[i] = new Button();
                 int finalI = i;
                 contact[i].setOnAction(p -> {
@@ -336,7 +336,7 @@ public class VodiciController extends User implements Initializable {
                     try {
                         Parent root = loader.load();
                         SendEmailController updateWorkoutController = loader.getController();
-                        updateWorkoutController.onCreate(ids.get(finalI));
+                        updateWorkoutController.onCreate(emails.get(finalI));
                         Scene scene = new Scene(root);
                         stage.setScene(scene);
                         stage.setTitle("Poslať email");

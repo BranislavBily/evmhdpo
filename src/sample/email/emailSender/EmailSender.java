@@ -84,6 +84,40 @@ public class EmailSender {
         }
     }
 
+    public static void sendEmail(String receiver, String subject, String content) {
+        prop.put("mail.smtp.host", "smtp.gmail.com");
+        prop.put("mail.smtp.port", "465");
+        prop.put("mail.smtp.auth", "true");
+        prop.put("mail.smtp.socketFactory.port", "465");
+        prop.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+
+        Session session = Session.getInstance(prop,
+                new javax.mail.Authenticator() {
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication(sender, senderPassword);
+                    }
+                });
+
+        try {
+
+            MimeMessage message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(sender));
+            message.setRecipients(
+                    Message.RecipientType.TO,
+                    InternetAddress.parse(receiver)
+            );
+            message.setSubject(subject);
+            message.setContent(content, "text/html; charset=utf-8");
+
+            Transport.send(message);
+
+            System.out.println("email was send");
+
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+    }
+
     private static String createPasswordChangedContent() {
         return "Your password was successfully changed! \n If you did not do it, please contact our administrator at wittnerik@spse-po.sk";
     }

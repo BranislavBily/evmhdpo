@@ -8,12 +8,13 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import sample.FeedBack;
 import sample.email.emailFinder.EmailFinder;
 import sample.email.emailSender.EmailSender;
 import sample.email.verification.EmailVerificator;
 import sample.password.PasswordChangerJava;
 
-public class ResetHeslaController {
+public class ResetHeslaController extends FeedBack {
 
     @FXML
     private TextField textFieldEmail;
@@ -123,21 +124,7 @@ public class ResetHeslaController {
         stage.setMinWidth(362);
     }
 
-    private void displayErrorFeedback(TextField textField) {
-        DropShadow dropShadow = new DropShadow();
-        dropShadow.setRadius(15);
-        dropShadow.setColor(Color.color(1,0,0));
-        textField.setEffect(dropShadow);
-    }
-
-    private void displayErrorFeedback(PasswordField passField) {
-        DropShadow dropShadow = new DropShadow();
-        dropShadow.setRadius(15);
-        dropShadow.setColor(Color.color(1,0,0));
-        passField.setEffect(dropShadow);
-    }
-
-    private void resetFeedback(){
+    public void resetFeedback(){
         DropShadow dropShadow = new DropShadow(0, Color.color(0, 0, 0));
         textFieldCode.setEffect(dropShadow);
         textFieldEmail.setEffect(dropShadow);

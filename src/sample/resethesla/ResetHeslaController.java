@@ -51,7 +51,6 @@ public class ResetHeslaController {
         } else {
             code = generateCode();
             EmailSender.sendVerificationEmail(email,"Cau", code);
-            System.out.println(code);
             resizeScene(400);
             resetHeslaPane.autosize();
             textFieldCode.setVisible(true);
@@ -63,7 +62,7 @@ public class ResetHeslaController {
 
     @FXML
     private void onOveritKod() {
-        if(pocetPokusov < 4) {
+        if(pocetPokusov < 3) {
             resetFeedback();
             try {
                 int userKod = Integer.parseInt(textFieldCode.getText());

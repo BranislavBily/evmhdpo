@@ -1,10 +1,8 @@
 package sample.vodici;
 
 import connectivity.ConnectionClass;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,12 +13,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import sample.User;
 import sample.login.LoginController;
-import sample.servis.ServisController;
-import sample.vozidla.TableModel;
-import sample.vozidla.UpdateController;
 import sample.vozidla.VozidlaController;
 
 import java.io.IOException;
@@ -36,25 +32,28 @@ public class VodiciController extends User implements Initializable {
 
 
     public TableView<sample.vodici.TableModelVod> tableView;
-    public TableColumn<sample.vodici.TableModelVod,String> vodicID;
-    public TableColumn<sample.vodici.TableModelVod,String> vodicName;
+    public TableColumn<sample.vodici.TableModelVod, String> vodicID;
+    public TableColumn<sample.vodici.TableModelVod, String> vodicName;
     public TableColumn<sample.vodici.TableModelVod, String> vodicSurname;
-    public TableColumn<sample.vodici.TableModelVod,String> vozidlo;
-    public TableColumn<sample.vodici.TableModelVod,String> stav;
-    public TableColumn<sample.vodici.TableModelVod,String> prehliadka;
-   
+    public TableColumn<sample.vodici.TableModelVod, String> vozidlo;
+    public TableColumn<sample.vodici.TableModelVod, String> stav;
+    public TableColumn<sample.vodici.TableModelVod, String> prehliadka;
+
     public TableColumn<sample.vodici.TableModelVod, Button> updateColumn;
-    public TableColumn<sample.vodici.TableModelVod,Button> deleteColumn;
+    public TableColumn<sample.vodici.TableModelVod, Button> deleteColumn;
+    @FXML
+    private TableColumn<sample.vodici.TableModelVod, Button> contactColumn;
     public Label userLabel;
 
 
     Button[] delete;
     Button[] update;
+    Button[] contact;
     int updateID;
     Stage stageUpdate;
     int updateIdecko;
-    String userName="";
-    
+    String userName = "";
+
     @FXML
     private javafx.scene.control.Label VozidlaButton;
     @FXML
@@ -75,7 +74,6 @@ public class VodiciController extends User implements Initializable {
             Parent root = loader.load();
 
 
-
             Scene scene = new Scene(root);
 
             stageVozidla.setTitle("Vozidlá");
@@ -90,13 +88,13 @@ public class VodiciController extends User implements Initializable {
             e.printStackTrace();
         }
     }
+
     @FXML
     private void vodiciClick() {
         try {
             Stage stageVodici = (Stage) VodiciButton.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(VodiciController.class.getResource("../vodici/Vodici.fxml"));
             Parent root = loader.load();
-
 
 
             Scene scene = new Scene(root);
@@ -113,6 +111,7 @@ public class VodiciController extends User implements Initializable {
             e.printStackTrace();
         }
     }
+
     @FXML
     public void servisClick() {
         try {
@@ -136,7 +135,7 @@ public class VodiciController extends User implements Initializable {
         }
     }
 
-    public void logOut(){
+    public void logOut() {
         try {
             Stage stageLogin = (Stage) ServisButton.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(VodiciController.class.getResource("../login/Login.fxml"));
@@ -158,7 +157,7 @@ public class VodiciController extends User implements Initializable {
         }
     }
 
-    public void addButton(){
+    public void addButton() {
         try {
             Stage stage = new Stage();
             FXMLLoader loader = new FXMLLoader(VozidlaController.class.getResource("../vodici/Add.fxml"));
@@ -187,24 +186,23 @@ public class VodiciController extends User implements Initializable {
 
     public void delete() throws SQLException {
         ConnectionClass connectionClass = new ConnectionClass();
-        Connection connection=connectionClass.getConnection();
-        Statement statement=connection.createStatement();
+        Connection connection = connectionClass.getConnection();
+        Statement statement = connection.createStatement();
 
 
-
-        String sqlID="SELECT id FROM vodici;";
-        ResultSet results=statement.executeQuery(sqlID);
+        String sqlID = "SELECT id FROM vodici;";
+        ResultSet results = statement.executeQuery(sqlID);
         ArrayList<Integer> ids = new ArrayList<>();
-        while(results.next()){
+        while (results.next()) {
             ids.add(results.getInt("id"));
         }
         delete = new Button[ids.size()];
 
-        for (int i=0;i<ids.size();i++){
+        for (int i = 0; i < ids.size(); i++) {
             delete[i] = new Button();
             int finalId = ids.get(i);
             delete[i].setOnAction(e -> {
-                String delete="DELETE FROM vodici WHERE id="+ finalId;
+                String delete = "DELETE FROM vodici WHERE id=" + finalId;
                 System.out.println("finalId:" + finalId);
                 try {
                     statement.executeUpdate(delete);
@@ -217,23 +215,22 @@ public class VodiciController extends User implements Initializable {
         }
 
 
-
     }
 
     public void updateWindow() throws SQLException {
         ConnectionClass connectionClass = new ConnectionClass();
-        Connection connection=connectionClass.getConnection();
-        Statement statement=connection.createStatement();
+        Connection connection = connectionClass.getConnection();
+        Statement statement = connection.createStatement();
 
-        String sqlID="SELECT id FROM vodici;";
-        ResultSet results=statement.executeQuery(sqlID);
+        String sqlID = "SELECT id FROM vodici;";
+        ResultSet results = statement.executeQuery(sqlID);
         ArrayList<Integer> ids = new ArrayList<>();
-        while(results.next()){
+        while (results.next()) {
             ids.add(results.getInt("id"));
         }
         update = new Button[ids.size()];
 
-        for (int i=0;i<ids.size();i++){
+        for (int i = 0; i < ids.size(); i++) {
             update[i] = new Button();
             int finalI = i;
             update[i].setOnAction(p -> {
@@ -250,7 +247,6 @@ public class VodiciController extends User implements Initializable {
                 updateController.updateId(updateID);
 
 
-
                 Scene scene = new Scene(root);
 
 
@@ -264,40 +260,42 @@ public class VodiciController extends User implements Initializable {
                 stageUpdate.showAndWait();
 
                 vodiciClick();
-            }); {
+            });
+            {
 
             }
         }
 
     }
 
-    public void callDatabase(){
+    public void callDatabase() {
         try {
-
             ConnectionClass connectionClass = new ConnectionClass();
-            Connection connection=connectionClass.getConnection();
-            Statement statement=connection.createStatement();
-
-            String sql2="SELECT * FROM vodici;";
-            ResultSet resultSet=statement.executeQuery(sql2);
-
-
-
+            Connection connection = connectionClass.getConnection();
+            Statement statement = connection.createStatement();
+            String sql2 = "SELECT * FROM vodici;";
+            ResultSet resultSet = statement.executeQuery(sql2);
             delete();
             updateWindow();
+            createContactButtonsForAllVodici();
+            int i = 0;
+            while (resultSet.next()) {
 
-            int i=0;
-            while (resultSet.next()){
-
-                observableList.add(new TableModelVod(resultSet.getInt("evc_vodica"),resultSet.getString("name"),resultSet.getString("surname"),resultSet.getInt("evc_vehicle"),resultSet.getString("stav"),resultSet.getDate("prehliadka"),update[i],delete[i]));
+                observableList.add(new TableModelVod(resultSet.getInt("evc_vodica"),
+                        resultSet.getString("name"),
+                        resultSet.getString("surname"),
+                        resultSet.getInt("evc_vehicle"),
+                        resultSet.getString("stav"),
+                        resultSet.getDate("prehliadka"),
+                        update[i],
+                        delete[i],
+                        contact[i],
+                        resultSet.getString("email")));
                 i++;
             }
-
             resultSet.close();
             connection.close();
             statement.close();
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -310,25 +308,59 @@ public class VodiciController extends User implements Initializable {
         prehliadka.setCellValueFactory(new PropertyValueFactory<>("prehliadka"));
         updateColumn.setCellValueFactory(new PropertyValueFactory<>("update"));
         deleteColumn.setCellValueFactory(new PropertyValueFactory<>("delete"));
+        contactColumn.setCellValueFactory(new PropertyValueFactory<>("contact"));
 
 
         tableView.setItems(observableList);
+    }
 
-
+    private void createContactButtonsForAllVodici() {
+        ConnectionClass connectionClass = new ConnectionClass();
+        Connection connection = connectionClass.getConnection();
+        Statement statement;
+        try {
+            statement = connection.createStatement();
+            String sqlID = "SELECT email FROM vodici;";
+            ResultSet results = statement.executeQuery(sqlID);
+            ArrayList<String> ids = new ArrayList<>();
+            while (results.next()) {
+                ids.add(results.getString("email"));
+            }
+            contact = new Button[ids.size()];
+            for (int i = 0; i < ids.size(); i++) {
+                contact[i] = new Button();
+                int finalI = i;
+                contact[i].setOnAction(p -> {
+                    Stage stage =  new Stage();
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("sendEmail.fxml"));
+                    try {
+                        Parent root = loader.load();
+                        SendEmailController updateWorkoutController = loader.getController();
+                        updateWorkoutController.onCreate(ids.get(finalI));
+                        Scene scene = new Scene(root);
+                        stage.setScene(scene);
+                        stage.setTitle("Poslať email");
+                        stage.setResizable(false);
+                        stage.initModality(Modality.APPLICATION_MODAL);
+                        stage.showAndWait();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
     }
 
 
-
-    ObservableList<sample.vodici.TableModelVod> observableList= FXCollections.observableArrayList();
+    ObservableList<sample.vodici.TableModelVod> observableList = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         callDatabase();
         userLabel.setText(LoginController.user.getMeno());
-
-
-
     }
 
 }

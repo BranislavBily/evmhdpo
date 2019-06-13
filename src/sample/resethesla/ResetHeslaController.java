@@ -51,7 +51,7 @@ public class ResetHeslaController extends FeedBack {
             System.out.println("Neexistuje pouzivatel s takymto emailom");
         } else {
             code = generateCode();
-            EmailSender.sendVerificationEmail(email,"Cau", code);
+            EmailSender.sendVerificationEmail(email,"Verification Code", code);
             resizeScene(400);
             resetHeslaPane.autosize();
             textFieldCode.setVisible(true);

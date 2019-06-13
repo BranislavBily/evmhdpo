@@ -39,7 +39,18 @@ public class EmailSender {
                     InternetAddress.parse(receiver)
             );
             message.setSubject(subject);
-            message.setContent("Your code is: " + code, "text/html; charset=utf-8");
+            String messageText = "<div>\n" +
+                    "    <p>Your verification code is: </p>\n" +
+                    "    <h1 style=\"color:brown\">"+code+"</h1>\n" +
+                    "</div>\n" +
+                    "<br>\n" +
+                    "<br>\n" +
+                    "<br>\n" +
+                    "<br>\n" +
+                    "<br>\n" +
+                    "<br>\n" +
+                    "<p>If you did not request changing password please contant our administrator at: wittner@spse-po.sk</p>";
+            message.setContent(messageText, "text/html; charset=utf-8");
 
             Transport.send(message);
 
@@ -119,7 +130,11 @@ public class EmailSender {
     }
 
     private static String createPasswordChangedContent() {
-        return "Your password was successfully changed! \n If you did not do it, please contact our administrator at wittnerik@spse-po.sk";
+        return "<div>\n" +
+                "    <p>Your password has been successfully changed!</p>\n" +
+                "    <br><br><br><br>\n" +
+                "    <p>If your did not change your password please contact our administrator at wittner@spse-po.sk</p>\n" +
+                "</div>";
     }
 
 }

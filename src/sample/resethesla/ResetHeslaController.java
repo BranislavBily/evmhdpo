@@ -33,6 +33,7 @@ public class ResetHeslaController {
     private TextField textFieldCode;
 
     private int code;
+    private int pocetPokusov = 0;
 
     @FXML
     private void onOveritEmail() {
@@ -62,25 +63,32 @@ public class ResetHeslaController {
 
     @FXML
     private void onOveritKod() {
-        resetFeedback();
-        try {
-            int userKod = Integer.parseInt(textFieldCode.getText());
-            if(userKod == code) {
-                System.out.println("Yey");
-                buttonZaslatCode.setDisable(true);
-                textFieldCode.setDisable(true);
-                passField.setVisible(true);
-                passField1.setVisible(true);
-                zmenitHeslo.setVisible(true);
-                resizeScene(620);
-                resetHeslaPane.autosize();
-            } else {
+        if(pocetPokusov < 4) {
+            resetFeedback();
+            try {
+                int userKod = Integer.parseInt(textFieldCode.getText());
+                if(userKod == code) {
+                    System.out.println("Yey");
+                    buttonZaslatCode.setDisable(true);
+                    textFieldCode.setDisable(true);
+                    passField.setVisible(true);
+                    passField1.setVisible(true);
+                    zmenitHeslo.setVisible(true);
+                    resizeScene(620);
+                    resetHeslaPane.autosize();
+                } else {
+                    displayErrorFeedback(textFieldCode);
+                    System.out.println("Zly kod");
+                    pocetPokusov++;
+                }
+            } catch (NumberFormatException e) {
+                pocetPokusov++;
                 displayErrorFeedback(textFieldCode);
-                System.out.println("Zly kod");
+                System.out.println("Sa spamataj");
             }
-        } catch (NumberFormatException e) {
-            displayErrorFeedback(textFieldCode);
-            System.out.println("Sa spamataj");
+        } else {
+            Stage stage = (Stage) textFieldCode.getScene().getWindow();
+            stage.close();
         }
     }
 

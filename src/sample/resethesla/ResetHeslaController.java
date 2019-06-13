@@ -4,12 +4,13 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import sample.email.emailFinder.EmailFinder;
 import sample.email.emailSender.EmailSender;
 import sample.email.verification.EmailVerificator;
-import sample.password.PasswordChanger;
 import sample.password.PasswordChangerJava;
 
 public class ResetHeslaController {
@@ -35,11 +36,16 @@ public class ResetHeslaController {
 
     @FXML
     private void onOveritEmail() {
+        resetFeedback();
         System.out.println("Overujem kod");
         String email = textFieldEmail.getText();
         if (!EmailVerificator.isEmailCorrect(email)) {
+            displayErrorFeedback(textFieldEmail);
             System.out.println("Zly email");
+
         } else if(!EmailFinder.emailInDatabase(email)) {
+            textFieldEmail.setPromptText("Neexistuje pouzivatel s takymto emailom");
+            displayErrorFeedback(textFieldEmail);
             System.out.println("Neexistuje pouzivatel s takymto emailom");
         } else {
             code = generateCode();
@@ -56,6 +62,7 @@ public class ResetHeslaController {
 
     @FXML
     private void onOveritKod() {
+        resetFeedback();
         try {
             int userKod = Integer.parseInt(textFieldCode.getText());
             if(userKod == code) {
@@ -68,22 +75,28 @@ public class ResetHeslaController {
                 resizeScene(620);
                 resetHeslaPane.autosize();
             } else {
+                displayErrorFeedback(textFieldCode);
                 System.out.println("Zly kod");
             }
         } catch (NumberFormatException e) {
+            displayErrorFeedback(textFieldCode);
             System.out.println("Sa spamataj");
         }
     }
 
     @FXML
     private void onZmenitHeslo() {
+        resetFeedback();
         String password = passField.getText();
         String passwordAgain = passField1.getText();
         if(password.equals(passwordAgain) && password.length() > 8) {
             PasswordChangerJava.changePassword(textFieldEmail.getText(), password);
             Stage stage = (Stage) textFieldCode.getScene().getWindow();
             stage.close();
+            EmailSender.sendPasswordChangedEmail(textFieldEmail.getText());
         } else {
+            displayErrorFeedback(passField);
+            displayErrorFeedback(passField1);
             System.out.println("Zle heslo");
         }
     }
@@ -101,6 +114,28 @@ public class ResetHeslaController {
         Stage stage = (Stage) passField.getScene().getWindow();
         stage.setMinHeight(height);
         stage.setMinWidth(362);
+    }
+
+    private void displayErrorFeedback(TextField textField) {
+        DropShadow dropShadow = new DropShadow();
+        dropShadow.setRadius(15);
+        dropShadow.setColor(Color.color(1,0,0));
+        textField.setEffect(dropShadow);
+    }
+
+    private void displayErrorFeedback(PasswordField passField) {
+        DropShadow dropShadow = new DropShadow();
+        dropShadow.setRadius(15);
+        dropShadow.setColor(Color.color(1,0,0));
+        passField.setEffect(dropShadow);
+    }
+
+    private void resetFeedback(){
+        DropShadow dropShadow = new DropShadow(0, Color.color(0, 0, 0));
+        textFieldCode.setEffect(dropShadow);
+        textFieldEmail.setEffect(dropShadow);
+        passField.setEffect(dropShadow);
+        passField1.setEffect(dropShadow);
     }
 
 
